@@ -3,7 +3,6 @@ package io.github.aquerr.pumpkinfever.item.armor;
 import io.github.aquerr.pumpkinfever.PumpkinFever;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ArmorItem;
-import net.minecraft.item.IArmorMaterial;
 
 public class PumpkinChestplate extends ArmorItem
 {

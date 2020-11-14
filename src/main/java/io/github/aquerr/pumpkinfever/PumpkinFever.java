@@ -1,21 +1,25 @@
 package io.github.aquerr.pumpkinfever;
 
+import io.github.aquerr.pumpkinfever.block.PumpkinVineBlock;
+import io.github.aquerr.pumpkinfever.block.TinyPumpkin;
+import io.github.aquerr.pumpkinfever.block.TinyPumpkinLantern;
 import io.github.aquerr.pumpkinfever.item.PumpkinDust;
+import io.github.aquerr.pumpkinfever.item.armor.PumpkinBoots;
+import io.github.aquerr.pumpkinfever.item.armor.PumpkinChestplate;
+import io.github.aquerr.pumpkinfever.item.armor.PumpkinHelmet;
+import io.github.aquerr.pumpkinfever.item.armor.PumpkinLeggings;
 import io.github.aquerr.pumpkinfever.item.tool.PumpkinSword;
 import net.minecraft.block.Block;
+import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
-import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
-import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
+import net.minecraftforge.fml.event.lifecycle.*;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.IForgeRegistry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -59,6 +63,9 @@ public class PumpkinFever
         // some preinit code
         LOGGER.info("HELLO FROM PREINIT");
         LOGGER.info("DIRT BLOCK >> {}", net.minecraft.block.Blocks.DIRT.getRegistryName());
+
+        //TODO: Add mob spawns...
+//        ForgeRegistries.BIOMES
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
@@ -79,15 +86,15 @@ public class PumpkinFever
                 map(m->m.getMessageSupplier().get()).
                 collect(Collectors.toList()));
     }
-    // You can use SubscribeEvent and let the Event Bus discover methods to call
-    @SubscribeEvent
-    public void onServerStarting(FMLServerStartingEvent event) {
-        // do something when the server starts
-        LOGGER.info("HELLO from server starting");
-    }
 
     public static class Items
     {
+        // Armor
+        public static final PumpkinHelmet PUMPKIN_HELMET = new PumpkinHelmet();
+        public static final PumpkinChestplate PUMPKIN_CHESTPLATE = new PumpkinChestplate();
+        public static final PumpkinLeggings PUMPKIN_LEGGINGS = new PumpkinLeggings();
+        public static final PumpkinBoots PUMPKIN_BOOTS = new PumpkinBoots();
+
         // Pumpkin tools
         public static final PumpkinSword PUMPKIN_SWORD = new PumpkinSword();
 
@@ -96,6 +103,11 @@ public class PumpkinFever
 
         public static void registerItems(final IForgeRegistry<Item> registry)
         {
+            registry.register(PUMPKIN_HELMET);
+            registry.register(PUMPKIN_CHESTPLATE);
+            registry.register(PUMPKIN_LEGGINGS);
+            registry.register(PUMPKIN_BOOTS);
+
             registry.register(PUMPKIN_DUST);
             registry.register(PUMPKIN_SWORD);
         }
@@ -108,10 +120,22 @@ public class PumpkinFever
 
     public static class Blocks
     {
+        public static final PumpkinVineBlock PUMPKIN_VINE_BLOCK = new PumpkinVineBlock();
+        public static final TinyPumpkin TINY_PUMPKIN = new TinyPumpkin();
+        public static final TinyPumpkinLantern TINY_PUMPKIN_LANTERN = new TinyPumpkinLantern();
 
         public static void registerBlocks(IForgeRegistry<Block> registry)
         {
-
+            registry.register(PUMPKIN_VINE_BLOCK);
+            registry.register(TINY_PUMPKIN);
+            registry.register(TINY_PUMPKIN_LANTERN);
         }
+
+//        private static void registerBlockItem(final Block block)
+//        {
+//            final BlockItem itemBlock = new BlockItem(block);
+//            itemBlock.setRegistryName(block.getRegistryName());
+//            ForgeRegistries.ITEMS.register(itemBlock);
+//        }
     }
 }

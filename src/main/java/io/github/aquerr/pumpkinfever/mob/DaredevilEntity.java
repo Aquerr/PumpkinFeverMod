@@ -4,9 +4,9 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.passive.horse.HorseEntity;
 import net.minecraft.world.World;
 
-public class Daredevil extends HorseEntity
+public class DaredevilEntity extends HorseEntity
 {
-    public Daredevil(EntityType<? extends HorseEntity> type, World worldIn)
+    public DaredevilEntity(EntityType<? extends HorseEntity> type, World worldIn)
     {
         super(type, worldIn);
     }

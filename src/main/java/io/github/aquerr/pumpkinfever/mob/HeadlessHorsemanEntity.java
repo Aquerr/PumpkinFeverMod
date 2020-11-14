@@ -4,9 +4,9 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.world.World;
 
-public class HeadlessHorseman extends MobEntity
+public class HeadlessHorsemanEntity extends MobEntity
 {
-    protected HeadlessHorseman(EntityType<? extends MobEntity> type, World worldIn)
+    protected HeadlessHorsemanEntity(EntityType<? extends MobEntity> type, World worldIn)
     {
         super(type, worldIn);
     }
