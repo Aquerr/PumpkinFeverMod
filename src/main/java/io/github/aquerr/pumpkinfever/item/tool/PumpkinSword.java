@@ -10,5 +10,6 @@ public class PumpkinSword extends SwordItem
     public PumpkinSword()
     {
         super(ItemTier.WOOD, 2, -2.0f, new Item.Properties().group(PumpkinFever.ITEM_GROUP));
+        setRegistryName("pumpkin_sword");
     }
 }

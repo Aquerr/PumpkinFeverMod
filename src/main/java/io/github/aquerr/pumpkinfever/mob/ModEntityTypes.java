@@ -30,9 +30,9 @@ public class ModEntityTypes
 
     public static void registerEntityTypes(final IForgeRegistry<EntityType<?>> registry)
     {
-        registry.register(ModEntityTypes.DAREDEVIL_ENTITY_ENTITY_TYPE);
-        registry.register(ModEntityTypes.HEADLESS_HORSEMAN_ENTITY_ENTITY_TYPE);
-        registry.register(ModEntityTypes.PUMPKINNO_ENTITY_ENTITY_TYPE);
-        registry.register(ModEntityTypes.PUMPKINPO_ENTITY_ENTITY_TYPE);
+        registry.register(DAREDEVIL_ENTITY_ENTITY_TYPE.setRegistryName("daredevil"));
+        registry.register(HEADLESS_HORSEMAN_ENTITY_ENTITY_TYPE.setRegistryName("headless_horseman"));
+        registry.register(PUMPKINNO_ENTITY_ENTITY_TYPE.setRegistryName("pumpkinno"));
+        registry.register(PUMPKINPO_ENTITY_ENTITY_TYPE.setRegistryName("pumpkinpo"));
     }
 }

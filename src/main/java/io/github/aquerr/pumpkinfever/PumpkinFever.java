@@ -3,23 +3,31 @@ package io.github.aquerr.pumpkinfever;
 import io.github.aquerr.pumpkinfever.block.PumpkinVineBlock;
 import io.github.aquerr.pumpkinfever.block.TinyPumpkin;
 import io.github.aquerr.pumpkinfever.block.TinyPumpkinLantern;
+import io.github.aquerr.pumpkinfever.client.renderer.DaredevilRenderer;
 import io.github.aquerr.pumpkinfever.item.PumpkinDust;
 import io.github.aquerr.pumpkinfever.item.armor.PumpkinBoots;
 import io.github.aquerr.pumpkinfever.item.armor.PumpkinChestplate;
 import io.github.aquerr.pumpkinfever.item.armor.PumpkinHelmet;
 import io.github.aquerr.pumpkinfever.item.armor.PumpkinLeggings;
 import io.github.aquerr.pumpkinfever.item.tool.PumpkinSword;
+import io.github.aquerr.pumpkinfever.mob.ModEntityTypes;
+import io.github.aquerr.pumpkinfever.network.PumpkinFeverPacketHandler;
 import net.minecraft.block.Block;
-import net.minecraft.item.BlockItem;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.entity.EntityRendererManager;
+import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.SpawnEggItem;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.*;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
+import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.IForgeRegistry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -43,6 +51,7 @@ public class PumpkinFever
     // Directly reference a log4j logger.
     private static final Logger LOGGER = LogManager.getLogger();
 
+    private PumpkinFeverPacketHandler pumpkinFeverPacketHandler;
 
     public PumpkinFever() {
         // Register the setup method for modloading
@@ -60,9 +69,7 @@ public class PumpkinFever
 
     private void setup(final FMLCommonSetupEvent event)
     {
-        // some preinit code
-        LOGGER.info("HELLO FROM PREINIT");
-        LOGGER.info("DIRT BLOCK >> {}", net.minecraft.block.Blocks.DIRT.getRegistryName());
+        this.pumpkinFeverPacketHandler = new PumpkinFeverPacketHandler();
 
         //TODO: Add mob spawns...
 //        ForgeRegistries.BIOMES
@@ -71,6 +78,10 @@ public class PumpkinFever
     private void doClientStuff(final FMLClientSetupEvent event) {
         // do something that can only be done on the client
         LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);
+
+        //Register renderers
+        final EntityRendererManager entityRendererManager = Minecraft.getInstance().getRenderManager();
+        entityRendererManager.register(ModEntityTypes.DAREDEVIL_ENTITY_ENTITY_TYPE, new DaredevilRenderer(entityRendererManager));
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event)
@@ -101,6 +112,8 @@ public class PumpkinFever
         // Other Items
         public static final PumpkinDust PUMPKIN_DUST = new PumpkinDust();
 
+        public static final SpawnEggItem DAREDEVIL_SPAWN_EGG = new SpawnEggItem(ModEntityTypes.DAREDEVIL_ENTITY_ENTITY_TYPE, 4996656, 986895, (new Item.Properties()).group(PumpkinFever.ITEM_GROUP));
+
         public static void registerItems(final IForgeRegistry<Item> registry)
         {
             registry.register(PUMPKIN_HELMET);
@@ -110,6 +123,8 @@ public class PumpkinFever
 
             registry.register(PUMPKIN_DUST);
             registry.register(PUMPKIN_SWORD);
+
+            registry.register(DAREDEVIL_SPAWN_EGG.setRegistryName("daredevil_spawn_egg"));
         }
 
         public static void registerModels()
