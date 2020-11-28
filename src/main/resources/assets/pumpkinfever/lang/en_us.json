@@ -1,8 +1,15 @@
 {
+  "itemGroup.pumpkinfever": "Pumpkin Fever",
   "item.pumpkinfever.pumpkin_helmet": "Pumpkin Helmet",
   "item.pumpkinfever.pumpkin_chestplate": "Pumpkin Helmet",
   "item.pumpkinfever.pumpkin_leggings": "Pumpkin Leggings",
   "item.pumpkinfever.pumpkin_boots": "Pumpkin Boots",
+  "item.pumpkinfever.pumpkin_sword": "Pumpkin Sword",
+  "item.pumpkinfever.pumpkin_dust": "Pumpkin Dust",
   "item.pumpkinfever.daredevil_spawn_egg": "Daredevil Spawn Egg",
-  "entity.pumpkinfever.daredevil": "Daredevil"
+  "item.pumpkinfever.headless_horseman_spawn_egg": "Headless Horseman Spawn Egg",
+  "entity.pumpkinfever.daredevil": "Daredevil",
+  "entity.pumpkinfever.headless_horseman": "Headless Horseman",
+  "entity.pumpkinfever.pumpkinno": "Pumpkinno",
+  "entity.pumpkinfever.pumpkinpo": "Pumpkinpo"
 }

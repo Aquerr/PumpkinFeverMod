@@ -11,28 +11,28 @@ public class ModEntityTypes
     public static final EntityType<DaredevilEntity> DAREDEVIL_ENTITY_ENTITY_TYPE = EntityType.Builder
             .create(DaredevilEntity::new, EntityClassification.MONSTER)
             .size(1.3964844F, 1.6F) //Same as horse
-            .build(new ResourceLocation(PumpkinFever.MOD_ID, "daredevil").toString());
+            .build(new ResourceLocation(PumpkinFever.MOD_ID, DaredevilEntity.REGISTRY_NAME).toString());
 
     public static final EntityType<HeadlessHorsemanEntity> HEADLESS_HORSEMAN_ENTITY_ENTITY_TYPE = EntityType.Builder
             .create(HeadlessHorsemanEntity::new, EntityClassification.MONSTER)
             .size(0.6F, 1.99F) //Same as skeleton
-            .build(new ResourceLocation(PumpkinFever.MOD_ID, "headless_horseman").toString());
+            .build(new ResourceLocation(PumpkinFever.MOD_ID, HeadlessHorsemanEntity.REGISTRY_NAME).toString());
 
     public static final EntityType<PumpkinnoEntity> PUMPKINNO_ENTITY_ENTITY_TYPE = EntityType.Builder
             .create(PumpkinnoEntity::new, EntityClassification.MONSTER)
             .size(0.7F, 0.7F)
-            .build(new ResourceLocation(PumpkinFever.MOD_ID, "pumpkinno").toString());
+            .build(new ResourceLocation(PumpkinFever.MOD_ID, PumpkinnoEntity.REGISTRY_NAME).toString());
 
     public static final EntityType<PumpkinpoEntity> PUMPKINPO_ENTITY_ENTITY_TYPE = EntityType.Builder
             .create(PumpkinpoEntity::new, EntityClassification.MONSTER)
             .size(0.7F, 0.7F)
-            .build(new ResourceLocation(PumpkinFever.MOD_ID, "pumpkinpo").toString());
+            .build(new ResourceLocation(PumpkinFever.MOD_ID, PumpkinpoEntity.REGISTRY_NAME).toString());
 
     public static void registerEntityTypes(final IForgeRegistry<EntityType<?>> registry)
     {
-        registry.register(DAREDEVIL_ENTITY_ENTITY_TYPE.setRegistryName("daredevil"));
-        registry.register(HEADLESS_HORSEMAN_ENTITY_ENTITY_TYPE.setRegistryName("headless_horseman"));
-        registry.register(PUMPKINNO_ENTITY_ENTITY_TYPE.setRegistryName("pumpkinno"));
-        registry.register(PUMPKINPO_ENTITY_ENTITY_TYPE.setRegistryName("pumpkinpo"));
+        registry.register(DAREDEVIL_ENTITY_ENTITY_TYPE.setRegistryName(DaredevilEntity.REGISTRY_NAME));
+        registry.register(HEADLESS_HORSEMAN_ENTITY_ENTITY_TYPE.setRegistryName(HeadlessHorsemanEntity.REGISTRY_NAME));
+        registry.register(PUMPKINNO_ENTITY_ENTITY_TYPE.setRegistryName(PumpkinnoEntity.REGISTRY_NAME));
+        registry.register(PUMPKINPO_ENTITY_ENTITY_TYPE.setRegistryName(PumpkinpoEntity.REGISTRY_NAME));
     }
 }

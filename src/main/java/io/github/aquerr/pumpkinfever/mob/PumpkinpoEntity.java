@@ -6,7 +6,9 @@ import net.minecraft.world.World;
 
 public class PumpkinpoEntity extends MobEntity
 {
-    protected PumpkinpoEntity(EntityType<? extends MobEntity> type, World worldIn)
+    public static final String REGISTRY_NAME = "pumpkinpo";
+
+    public PumpkinpoEntity(EntityType<? extends MobEntity> type, World worldIn)
     {
         super(type, worldIn);
     }

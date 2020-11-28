@@ -6,6 +6,8 @@ import net.minecraft.world.World;
 
 public class DaredevilEntity extends HorseEntity
 {
+    public static final String REGISTRY_NAME = "daredevil";
+
     public DaredevilEntity(EntityType<? extends HorseEntity> type, World worldIn)
     {
         super(type, worldIn);

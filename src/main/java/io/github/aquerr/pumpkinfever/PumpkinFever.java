@@ -4,6 +4,7 @@ import io.github.aquerr.pumpkinfever.block.PumpkinVineBlock;
 import io.github.aquerr.pumpkinfever.block.TinyPumpkin;
 import io.github.aquerr.pumpkinfever.block.TinyPumpkinLantern;
 import io.github.aquerr.pumpkinfever.client.renderer.DaredevilRenderer;
+import io.github.aquerr.pumpkinfever.client.renderer.HeadlessHorsemanRenderer;
 import io.github.aquerr.pumpkinfever.item.PumpkinDust;
 import io.github.aquerr.pumpkinfever.item.armor.PumpkinBoots;
 import io.github.aquerr.pumpkinfever.item.armor.PumpkinChestplate;
@@ -15,6 +16,7 @@ import io.github.aquerr.pumpkinfever.network.PumpkinFeverPacketHandler;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
+import net.minecraft.client.renderer.entity.SkeletonRenderer;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -79,19 +81,26 @@ public class PumpkinFever
         // do something that can only be done on the client
         LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);
 
-        //Register renderers
+        registerRenderers();
+    }
+
+    private void registerRenderers()
+    {
         final EntityRendererManager entityRendererManager = Minecraft.getInstance().getRenderManager();
         entityRendererManager.register(ModEntityTypes.DAREDEVIL_ENTITY_ENTITY_TYPE, new DaredevilRenderer(entityRendererManager));
+        entityRendererManager.register(ModEntityTypes.HEADLESS_HORSEMAN_ENTITY_ENTITY_TYPE, new HeadlessHorsemanRenderer(entityRendererManager));
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event)
     {
         // some example code to dispatch IMC to another mod
+        //TODO: Remove this...
         InterModComms.sendTo("examplemod", "helloworld", () -> { LOGGER.info("Hello world from the MDK"); return "Hello world";});
     }
 
     private void processIMC(final InterModProcessEvent event)
     {
+        //TODO: Remove this...
         // some example code to receive and process InterModComms from other mods
         LOGGER.info("Got IMC {}", event.getIMCStream().
                 map(m->m.getMessageSupplier().get()).
@@ -113,6 +122,7 @@ public class PumpkinFever
         public static final PumpkinDust PUMPKIN_DUST = new PumpkinDust();
 
         public static final SpawnEggItem DAREDEVIL_SPAWN_EGG = new SpawnEggItem(ModEntityTypes.DAREDEVIL_ENTITY_ENTITY_TYPE, 4996656, 986895, (new Item.Properties()).group(PumpkinFever.ITEM_GROUP));
+        public static final SpawnEggItem HEADLESS_HORSEMAN_SPAWN_EGG = new SpawnEggItem(ModEntityTypes.HEADLESS_HORSEMAN_ENTITY_ENTITY_TYPE, 4996656, 986895, (new Item.Properties()).group(PumpkinFever.ITEM_GROUP));
 
         public static void registerItems(final IForgeRegistry<Item> registry)
         {
@@ -125,6 +135,7 @@ public class PumpkinFever
             registry.register(PUMPKIN_SWORD);
 
             registry.register(DAREDEVIL_SPAWN_EGG.setRegistryName("daredevil_spawn_egg"));
+            registry.register(HEADLESS_HORSEMAN_SPAWN_EGG.setRegistryName("headless_horseman_spawn_egg"));
         }
 
         public static void registerModels()
