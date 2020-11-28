@@ -5,11 +5,11 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemTier;
 import net.minecraft.item.SwordItem;
 
-public class PumpkinSword extends SwordItem
+public class PumpkinIronSword extends SwordItem
 {
-    public PumpkinSword()
+    public PumpkinIronSword()
     {
         super(ItemTier.WOOD, 2, -2.0f, new Item.Properties().group(PumpkinFever.ITEM_GROUP));
-        setRegistryName("pumpkin_sword");
+        setRegistryName("pumpkin_iron_sword");
     }
 }
