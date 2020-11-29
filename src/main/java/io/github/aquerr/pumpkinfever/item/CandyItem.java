@@ -7,7 +7,7 @@ public class CandyItem extends Item
 {
     public CandyItem()
     {
-        super(new Properties().food(PumpkinFever.Foods.CANDY).group(PumpkinFever.ITEM_GROUP));
+        super(new Properties().food(ModFoods.CANDY).group(PumpkinFever.ITEM_GROUP));
         setRegistryName("candy");
     }
 }
