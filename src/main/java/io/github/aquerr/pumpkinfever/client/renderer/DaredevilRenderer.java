@@ -32,8 +32,5 @@ public class DaredevilRenderer extends AbstractHorseRenderer<DaredevilEntity, Ho
     public void render(DaredevilEntity entityIn, float entityYaw, float partialTicks, MatrixStack matrixStackIn, IRenderTypeBuffer bufferIn, int packedLightIn)
     {
         super.render(entityIn, entityYaw, partialTicks, matrixStackIn, bufferIn, packedLightIn);
-        final World world = entityIn.getEntityWorld();
-        float particlePosition = entityIn.getSize(Pose.STANDING).height;
-        world.addParticle(ParticleTypes.FLAME, entityIn.getPosX(), particlePosition, entityIn.getPosZ(), 0.0D, 0.0D, 0.0D);
     }
 }
