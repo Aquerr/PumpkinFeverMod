@@ -1,13 +1,15 @@
 package io.github.aquerr.pumpkinfever;
 
+import io.github.aquerr.pumpkinfever.block.ModBlocks;
 import io.github.aquerr.pumpkinfever.client.renderer.CandyMerchantRenderer;
 import io.github.aquerr.pumpkinfever.client.renderer.DaredevilRenderer;
 import io.github.aquerr.pumpkinfever.client.renderer.HeadlessHorsemanRenderer;
 import io.github.aquerr.pumpkinfever.mob.ModEntityTypes;
 import io.github.aquerr.pumpkinfever.network.PumpkinFeverPacketHandler;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
-import net.minecraft.item.*;
 import net.minecraft.resources.IReloadableResourceManager;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.InterModComms;
@@ -27,14 +29,6 @@ import java.util.stream.Collectors;
 public class PumpkinFever
 {
     public static final String MOD_ID = "pumpkinfever";
-    public static final ItemGroup ITEM_GROUP = new ItemGroup("pumpkinfever")
-    {
-        @Override
-        public ItemStack createIcon()
-        {
-            return new ItemStack(net.minecraft.item.Items.PUMPKIN);
-        }
-    };
 
     // Directly reference a log4j logger.
     private static final Logger LOGGER = LogManager.getLogger();
@@ -59,7 +53,6 @@ public class PumpkinFever
     {
         this.pumpkinFeverPacketHandler = new PumpkinFeverPacketHandler();
 
-        //TODO: Add mob spawns...
 //        ForgeRegistries.BIOMES
     }
 
@@ -76,6 +69,8 @@ public class PumpkinFever
         entityRendererManager.register(ModEntityTypes.DAREDEVIL_ENTITY_ENTITY_TYPE, new DaredevilRenderer(entityRendererManager));
         entityRendererManager.register(ModEntityTypes.HEADLESS_HORSEMAN_ENTITY_ENTITY_TYPE, new HeadlessHorsemanRenderer(entityRendererManager));
         entityRendererManager.register(ModEntityTypes.CANDY_MERCHANT_ENTITY_TYPE, new CandyMerchantRenderer(entityRendererManager, (IReloadableResourceManager) Minecraft.getInstance().getResourceManager()));
+
+        RenderTypeLookup.setRenderLayer(ModBlocks.PUMPKIN_VINE_BLOCK, RenderType.getCutout());
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event)

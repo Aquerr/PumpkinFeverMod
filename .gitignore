@@ -17,9 +17,17 @@ out
 build
 .gradle
 
+# maven
+target
+
 # other
 eclipse
 run
 
 # Files from Forge MDK
 forge*changelog.txt
+
+
+run-client
+run-data
+run-server

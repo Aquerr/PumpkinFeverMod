@@ -1,6 +1,5 @@
 package io.github.aquerr.pumpkinfever.item;
 
-import io.github.aquerr.pumpkinfever.PumpkinFever;
 import io.github.aquerr.pumpkinfever.block.ModBlocks;
 import io.github.aquerr.pumpkinfever.item.armor.PumpkinBoots;
 import io.github.aquerr.pumpkinfever.item.armor.PumpkinChestplate;
@@ -16,9 +15,9 @@ import net.minecraftforge.registries.IForgeRegistry;
 public class ModItems
 {
     // BlockItems
-    public static final Item PUMPKIN_VINE = new BlockItem(ModBlocks.PUMPKIN_VINE_BLOCK, new Item.Properties().group(PumpkinFever.ITEM_GROUP)).setRegistryName(ModBlocks.PUMPKIN_VINE_BLOCK.getRegistryName());
-    public static final Item TINY_PUMPKIN = new BlockItem(ModBlocks.TINY_PUMPKIN, new Item.Properties().group(PumpkinFever.ITEM_GROUP)).setRegistryName(ModBlocks.TINY_PUMPKIN.getRegistryName());
-    public static final Item TINY_PUMPKIN_LANTERN = new BlockItem(ModBlocks.TINY_PUMPKIN_LANTERN, new Item.Properties().group(PumpkinFever.ITEM_GROUP)).setRegistryName(ModBlocks.TINY_PUMPKIN_LANTERN.getRegistryName());
+    public static final Item PUMPKIN_VINE = new BlockItem(ModBlocks.PUMPKIN_VINE_BLOCK, new Item.Properties().group(PumpkinFeverItemGroup.getInstance())).setRegistryName(ModBlocks.PUMPKIN_VINE_BLOCK.getRegistryName());
+    public static final Item TINY_PUMPKIN = new BlockItem(ModBlocks.TINY_PUMPKIN, new Item.Properties().group(PumpkinFeverItemGroup.getInstance())).setRegistryName(ModBlocks.TINY_PUMPKIN.getRegistryName());
+    public static final Item TINY_PUMPKIN_LANTERN = new BlockItem(ModBlocks.TINY_PUMPKIN_LANTERN, new Item.Properties().group(PumpkinFeverItemGroup.getInstance())).setRegistryName(ModBlocks.TINY_PUMPKIN_LANTERN.getRegistryName());
 
     // Armor
     public static final PumpkinHelmet PUMPKIN_HELMET = new PumpkinHelmet();
@@ -37,8 +36,8 @@ public class ModItems
     public static final PumpkinSoupCreamItem PUMPKIN_SOUP_CREAM = new PumpkinSoupCreamItem();
 
     // Spawn Eggs
-    public static final Item DAREDEVIL_SPAWN_EGG = new SpawnEggItem(ModEntityTypes.DAREDEVIL_ENTITY_ENTITY_TYPE, 4996656, 986895, (new Item.Properties()).group(PumpkinFever.ITEM_GROUP)).setRegistryName("daredevil_spawn_egg");
-    public static final Item HEADLESS_HORSEMAN_SPAWN_EGG = new SpawnEggItem(ModEntityTypes.HEADLESS_HORSEMAN_ENTITY_ENTITY_TYPE, 4996656, 986895, (new Item.Properties()).group(PumpkinFever.ITEM_GROUP)).setRegistryName("headless_horseman_spawn_egg");
+    public static final Item DAREDEVIL_SPAWN_EGG = new SpawnEggItem(ModEntityTypes.DAREDEVIL_ENTITY_ENTITY_TYPE, 4996656, 986895, (new Item.Properties()).group(PumpkinFeverItemGroup.getInstance())).setRegistryName("daredevil_spawn_egg");
+    public static final Item HEADLESS_HORSEMAN_SPAWN_EGG = new SpawnEggItem(ModEntityTypes.HEADLESS_HORSEMAN_ENTITY_ENTITY_TYPE, 4996656, 986895, (new Item.Properties()).group(PumpkinFeverItemGroup.getInstance())).setRegistryName("headless_horseman_spawn_egg");
 
     public static void registerItems(final IForgeRegistry<Item> registry)
     {

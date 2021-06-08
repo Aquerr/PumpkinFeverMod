@@ -3,7 +3,6 @@ package io.github.aquerr.pumpkinfever.mob;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.passive.horse.HorseEntity;
 import net.minecraft.particles.ParticleTypes;
-import net.minecraft.util.SoundEvents;
 import net.minecraft.world.World;
 
 public class DaredevilEntity extends HorseEntity

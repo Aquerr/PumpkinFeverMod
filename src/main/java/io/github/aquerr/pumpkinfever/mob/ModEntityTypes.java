@@ -3,7 +3,6 @@ package io.github.aquerr.pumpkinfever.mob;
 import io.github.aquerr.pumpkinfever.PumpkinFever;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.merchant.villager.VillagerEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.registries.IForgeRegistry;
 

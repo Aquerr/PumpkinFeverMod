@@ -68,4 +68,10 @@ public class PumpkinArmorMaterial implements IArmorMaterial
     {
         return 0;
     }
+
+    @Override
+    public float getKnockbackResistance()
+    {
+        return 0;
+    }
 }

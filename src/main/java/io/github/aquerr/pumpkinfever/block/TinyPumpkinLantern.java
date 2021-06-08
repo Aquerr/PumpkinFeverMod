@@ -9,7 +9,7 @@ public class TinyPumpkinLantern extends HorizontalBlock
 {
     public TinyPumpkinLantern()
     {
-        super(Properties.create(Material.GOURD).hardnessAndResistance(1.0F).lightValue(15).harvestTool(ToolType.AXE).sound(SoundType.WOOD));
+        super(Properties.create(Material.GOURD).hardnessAndResistance(1.0F).setLightLevel(value -> 15).harvestTool(ToolType.AXE).sound(SoundType.WOOD));
         setRegistryName("tiny_pumpkin_lantern");
     }
 }

@@ -1,7 +1,6 @@
 package io.github.aquerr.pumpkinfever.mob;
 
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.world.World;
 
