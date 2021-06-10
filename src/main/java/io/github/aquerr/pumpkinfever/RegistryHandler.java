@@ -2,7 +2,7 @@ package io.github.aquerr.pumpkinfever;
 
 import io.github.aquerr.pumpkinfever.block.ModBlocks;
 import io.github.aquerr.pumpkinfever.item.ModItems;
-import io.github.aquerr.pumpkinfever.mob.ModEntityTypes;
+import io.github.aquerr.pumpkinfever.mob.ModEntityTypeRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
@@ -35,6 +35,6 @@ public class RegistryHandler
     @SubscribeEvent
     public static void onEntityRegister(final RegistryEvent.Register<EntityType<?>> event)
     {
-        ModEntityTypes.registerEntityTypes(event.getRegistry());
+        ModEntityTypeRegistry.registerEntityTypes(event.getRegistry());
     }
 }

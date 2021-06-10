@@ -1,6 +1,7 @@
 package io.github.aquerr.pumpkinfever.mob;
 
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.merchant.villager.VillagerEntity;
 import net.minecraft.world.World;
 
@@ -11,5 +12,10 @@ public class CandyMerchant extends VillagerEntity
     public CandyMerchant(EntityType<? extends VillagerEntity> type, World worldIn)
     {
         super(type, worldIn);
+    }
+
+    public static AttributeModifierMap getAttributes()
+    {
+        return registerAttributes().create();
     }
 }

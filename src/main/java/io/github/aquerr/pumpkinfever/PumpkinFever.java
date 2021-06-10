@@ -4,7 +4,7 @@ import io.github.aquerr.pumpkinfever.block.ModBlocks;
 import io.github.aquerr.pumpkinfever.client.renderer.CandyMerchantRenderer;
 import io.github.aquerr.pumpkinfever.client.renderer.DaredevilRenderer;
 import io.github.aquerr.pumpkinfever.client.renderer.HeadlessHorsemanRenderer;
-import io.github.aquerr.pumpkinfever.mob.ModEntityTypes;
+import io.github.aquerr.pumpkinfever.mob.ModEntityTypeRegistry;
 import io.github.aquerr.pumpkinfever.network.PumpkinFeverPacketHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderType;
@@ -66,9 +66,9 @@ public class PumpkinFever
     private void registerRenderers()
     {
         final EntityRendererManager entityRendererManager = Minecraft.getInstance().getRenderManager();
-        entityRendererManager.register(ModEntityTypes.DAREDEVIL_ENTITY_ENTITY_TYPE, new DaredevilRenderer(entityRendererManager));
-        entityRendererManager.register(ModEntityTypes.HEADLESS_HORSEMAN_ENTITY_ENTITY_TYPE, new HeadlessHorsemanRenderer(entityRendererManager));
-        entityRendererManager.register(ModEntityTypes.CANDY_MERCHANT_ENTITY_TYPE, new CandyMerchantRenderer(entityRendererManager, (IReloadableResourceManager) Minecraft.getInstance().getResourceManager()));
+        entityRendererManager.register(ModEntityTypeRegistry.DAREDEVIL_ENTITY_ENTITY_TYPE, new DaredevilRenderer(entityRendererManager));
+        entityRendererManager.register(ModEntityTypeRegistry.HEADLESS_HORSEMAN_ENTITY_ENTITY_TYPE, new HeadlessHorsemanRenderer(entityRendererManager));
+        entityRendererManager.register(ModEntityTypeRegistry.CANDY_MERCHANT_ENTITY_TYPE, new CandyMerchantRenderer(entityRendererManager, (IReloadableResourceManager) Minecraft.getInstance().getResourceManager()));
 
         RenderTypeLookup.setRenderLayer(ModBlocks.PUMPKIN_VINE_BLOCK, RenderType.getCutout());
     }
