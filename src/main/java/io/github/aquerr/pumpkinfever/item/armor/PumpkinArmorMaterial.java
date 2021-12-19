@@ -1,13 +1,13 @@
 package io.github.aquerr.pumpkinfever.item.armor;
 
-import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.item.IArmorMaterial;
-import net.minecraft.item.Items;
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.util.SoundEvent;
-import net.minecraft.util.SoundEvents;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.ArmorMaterial;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
 
-public class PumpkinArmorMaterial implements IArmorMaterial
+public class PumpkinArmorMaterial implements ArmorMaterial
 {
     private static final PumpkinArmorMaterial PUMPKIN_ARMOR_MATERIAL = new PumpkinArmorMaterial();
 
@@ -17,7 +17,7 @@ public class PumpkinArmorMaterial implements IArmorMaterial
     // Currently same as leather armor
     private final int[] damageReductionAmountArray = new int[]{1, 2, 3, 1};
 
-    public static IArmorMaterial getMaterial()
+    public static ArmorMaterial getMaterial()
     {
         return PUMPKIN_ARMOR_MATERIAL;
     }
@@ -28,33 +28,33 @@ public class PumpkinArmorMaterial implements IArmorMaterial
     }
 
     @Override
-    public int getDurability(EquipmentSlotType slotIn)
+    public int getDurabilityForSlot(EquipmentSlot equipmentSlot)
     {
-        return MAX_DAMAGE_ARRAY[slotIn.getIndex()] * MAX_DAMAGE_FACTOR;
+        return MAX_DAMAGE_ARRAY[equipmentSlot.getIndex()] * MAX_DAMAGE_FACTOR;
     }
 
     @Override
-    public int getDamageReductionAmount(EquipmentSlotType slotIn)
+    public int getDefenseForSlot(EquipmentSlot equipmentSlot)
     {
-        return damageReductionAmountArray[slotIn.getIndex()];
+        return damageReductionAmountArray[equipmentSlot.getIndex()];
     }
 
     @Override
-    public int getEnchantability()
+    public int getEnchantmentValue()
     {
         return 17;
     }
 
     @Override
-    public SoundEvent getSoundEvent()
+    public SoundEvent getEquipSound()
     {
-        return SoundEvents.ITEM_ARMOR_EQUIP_LEATHER;
+        return SoundEvents.ARMOR_EQUIP_LEATHER;
     }
 
     @Override
-    public Ingredient getRepairMaterial()
+    public Ingredient getRepairIngredient()
     {
-        return Ingredient.fromItems(Items.PUMPKIN);
+        return Ingredient.of(Items.PUMPKIN);
     }
 
     @Override

@@ -1,6 +1,6 @@
 package io.github.aquerr.pumpkinfever.block;
 
-import net.minecraft.block.Block;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.IForgeRegistry;
 
 public class ModBlocks

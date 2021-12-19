@@ -1,10 +1,10 @@
-package io.github.aquerr.pumpkinfever.item;
+package io.github.aquerr.pumpkinfever;
 
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 
-public class PumpkinFeverItemGroup extends ItemGroup
+public class PumpkinFeverItemGroup extends CreativeModeTab
 {
     public static PumpkinFeverItemGroup INSTANCE;
 
@@ -21,8 +21,8 @@ public class PumpkinFeverItemGroup extends ItemGroup
     }
 
     @Override
-    public ItemStack createIcon()
+    public ItemStack makeIcon()
     {
-        return Items.PUMPKIN.getDefaultInstance();
+        return Items.JACK_O_LANTERN.getDefaultInstance();
     }
 }

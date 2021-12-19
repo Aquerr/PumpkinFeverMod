@@ -1,25 +1,22 @@
 package io.github.aquerr.pumpkinfever.mob;
 
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.MobEntity;
-import net.minecraft.entity.ai.attributes.AttributeModifierMap;
-import net.minecraft.entity.ai.attributes.Attributes;
-import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.entity.monster.ZombieEntity;
-import net.minecraft.entity.passive.horse.HorseEntity;
-import net.minecraft.world.World;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.level.Level;
 
-public class HeadlessHorsemanEntity extends MonsterEntity
+public class HeadlessHorsemanEntity extends Monster
 {
     public static final String REGISTRY_NAME = "headless_horseman";
 
-    public HeadlessHorsemanEntity(EntityType<? extends MonsterEntity> type, World worldIn)
+    public HeadlessHorsemanEntity(EntityType<? extends Monster> type, Level level)
     {
-        super(type, worldIn);
+        super(type, level);
     }
 
-    public static AttributeModifierMap getAttributes()
-    {
-        return MobEntity.func_233666_p_().create();
+    public static AttributeSupplier.Builder createMobAttributes() {
+        return Mob.createMobAttributes().add(Attributes.MOVEMENT_SPEED, 0.5D).add(Attributes.FOLLOW_RANGE, 48.0D);
     }
 }

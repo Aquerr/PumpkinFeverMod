@@ -6,11 +6,9 @@ import io.github.aquerr.pumpkinfever.client.renderer.DaredevilRenderer;
 import io.github.aquerr.pumpkinfever.client.renderer.HeadlessHorsemanRenderer;
 import io.github.aquerr.pumpkinfever.mob.ModEntityTypeRegistry;
 import io.github.aquerr.pumpkinfever.network.PumpkinFeverPacketHandler;
-import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.RenderTypeLookup;
-import net.minecraft.client.renderer.entity.EntityRendererManager;
-import net.minecraft.resources.IReloadableResourceManager;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
@@ -58,19 +56,16 @@ public class PumpkinFever
 
     private void doClientStuff(final FMLClientSetupEvent event) {
         // do something that can only be done on the client
-        LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);
-
         registerRenderers();
     }
 
     private void registerRenderers()
     {
-        final EntityRendererManager entityRendererManager = Minecraft.getInstance().getRenderManager();
-        entityRendererManager.register(ModEntityTypeRegistry.DAREDEVIL_ENTITY_ENTITY_TYPE, new DaredevilRenderer(entityRendererManager));
-        entityRendererManager.register(ModEntityTypeRegistry.HEADLESS_HORSEMAN_ENTITY_ENTITY_TYPE, new HeadlessHorsemanRenderer(entityRendererManager));
-        entityRendererManager.register(ModEntityTypeRegistry.CANDY_MERCHANT_ENTITY_TYPE, new CandyMerchantRenderer(entityRendererManager, (IReloadableResourceManager) Minecraft.getInstance().getResourceManager()));
+        EntityRenderers.register(ModEntityTypeRegistry.DAREDEVIL_ENTITY_ENTITY_TYPE, DaredevilRenderer::new);
+        EntityRenderers.register(ModEntityTypeRegistry.HEADLESS_HORSEMAN_ENTITY_ENTITY_TYPE, HeadlessHorsemanRenderer::new);
+        EntityRenderers.register(ModEntityTypeRegistry.CANDY_MERCHANT_ENTITY_TYPE, CandyMerchantRenderer::new);
 
-        RenderTypeLookup.setRenderLayer(ModBlocks.PUMPKIN_VINE_BLOCK, RenderType.getCutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.PUMPKIN_VINE_BLOCK, RenderType.cutout());
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event)

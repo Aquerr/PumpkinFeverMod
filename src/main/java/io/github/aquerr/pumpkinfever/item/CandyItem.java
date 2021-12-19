@@ -1,12 +1,13 @@
 package io.github.aquerr.pumpkinfever.item;
 
-import net.minecraft.item.Item;
+import io.github.aquerr.pumpkinfever.PumpkinFeverItemGroup;
+import net.minecraft.world.item.Item;
 
 public class CandyItem extends Item
 {
     public CandyItem()
     {
-        super(new Properties().food(ModFoods.CANDY).group(PumpkinFeverItemGroup.getInstance()));
+        super(new Properties().food(ModFoods.CANDY).tab(PumpkinFeverItemGroup.getInstance()));
         setRegistryName("candy");
     }
 }

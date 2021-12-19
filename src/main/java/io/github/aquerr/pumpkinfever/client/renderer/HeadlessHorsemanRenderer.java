@@ -1,28 +1,28 @@
 package io.github.aquerr.pumpkinfever.client.renderer;
 
 import io.github.aquerr.pumpkinfever.mob.HeadlessHorsemanEntity;
-import mcp.MethodsReturnNonnullByDefault;
-import net.minecraft.client.renderer.entity.BipedRenderer;
-import net.minecraft.client.renderer.entity.EntityRendererManager;
-import net.minecraft.client.renderer.entity.layers.HeldItemLayer;
-import net.minecraft.client.renderer.entity.model.PlayerModel;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.client.model.HumanoidModel;
+import net.minecraft.client.model.PlayerModel;
+import net.minecraft.client.model.geom.ModelLayers;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.client.renderer.entity.HumanoidMobRenderer;
+import net.minecraft.client.renderer.entity.layers.HumanoidArmorLayer;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 @OnlyIn(Dist.CLIENT)
-public class HeadlessHorsemanRenderer extends BipedRenderer<HeadlessHorsemanEntity, PlayerModel<HeadlessHorsemanEntity>>
+public class HeadlessHorsemanRenderer extends HumanoidMobRenderer<HeadlessHorsemanEntity, PlayerModel<HeadlessHorsemanEntity>>
 {
 
-    public HeadlessHorsemanRenderer(EntityRendererManager renderManagerIn)
+    public HeadlessHorsemanRenderer(EntityRendererProvider.Context context)
     {
-        super(renderManagerIn, new PlayerModel<>(0.0F, true), 0.5F);
-        this.addLayer(new HeldItemLayer<>(this));
+        super(context, new PlayerModel<>(context.bakeLayer(ModelLayers.PLAYER_SLIM), true), 0.5F);
+        addLayer(new HumanoidArmorLayer<>(this, new HumanoidModel<>(context.bakeLayer(ModelLayers.PLAYER_SLIM_INNER_ARMOR)), new HumanoidModel<>(context.bakeLayer(ModelLayers.PLAYER_SLIM_OUTER_ARMOR))));
     }
 
     @Override
-    @MethodsReturnNonnullByDefault
-    public ResourceLocation getEntityTexture(HeadlessHorsemanEntity entity)
+    public ResourceLocation getTextureLocation(HeadlessHorsemanEntity context)
     {
         return new ResourceLocation("textures/entity/skeleton/skeleton.png");
     }

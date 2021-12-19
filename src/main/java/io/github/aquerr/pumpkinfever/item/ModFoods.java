@@ -1,11 +1,11 @@
 package io.github.aquerr.pumpkinfever.item;
 
-import net.minecraft.item.Food;
+import net.minecraft.world.food.FoodProperties;
 
 public class ModFoods
 {
-    public static final Food CANDY_BASKET = new Food.Builder().hunger(8).saturation(0.8F).build();
-    public static final Food CANDY = new Food.Builder().hunger(2).saturation(0.2F).build();
-    public static final Food PUMPKIN_FRIES = new Food.Builder().hunger(2).saturation(0.15F).build();
-    public static final Food PUMPKIN_SOUP_CREAM = new Food.Builder().hunger(8).saturation(0.6F).build();
+    public static final FoodProperties CANDY_BASKET = new FoodProperties.Builder().nutrition(8).saturationMod(0.8F).build();
+    public static final FoodProperties CANDY = new FoodProperties.Builder().nutrition(2).saturationMod(0.2F).build();
+    public static final FoodProperties PUMPKIN_FRIES = new FoodProperties.Builder().nutrition(2).saturationMod(0.15F).build();
+    public static final FoodProperties PUMPKIN_SOUP_CREAM = new FoodProperties.Builder().nutrition(8).saturationMod(0.6F).build();
 }
