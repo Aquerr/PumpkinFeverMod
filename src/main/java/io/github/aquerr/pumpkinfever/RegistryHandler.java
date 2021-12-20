@@ -1,12 +1,17 @@
 package io.github.aquerr.pumpkinfever;
 
+import com.google.common.collect.ImmutableMap;
 import io.github.aquerr.pumpkinfever.block.ModBlocks;
 import io.github.aquerr.pumpkinfever.item.ModItems;
 import io.github.aquerr.pumpkinfever.mob.CandyMerchant;
 import io.github.aquerr.pumpkinfever.mob.ModEntityTypeRegistry;
+import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.ai.village.poi.PoiType;
 import net.minecraft.world.entity.npc.VillagerProfession;
+import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
@@ -44,5 +49,13 @@ public class RegistryHandler
     public static void onProfessionRegister(final RegistryEvent.Register<VillagerProfession> event)
     {
         event.getRegistry().register(CandyMerchant.CANDY_MERCHAT_PROFESSION);
+
+        VillagerTrades.TRADES.put(CandyMerchant.CANDY_MERCHAT_PROFESSION, CandyMerchant.TRADES);
+    }
+
+    @SubscribeEvent
+    public static void onPoiTypeRegister(final RegistryEvent.Register<PoiType> event)
+    {
+        event.getRegistry().register(CandyMerchant.CANDYMAN_POI_TYPE);
     }
 }

@@ -9,11 +9,14 @@
   "item.pumpkinfever.pumpkin_boots": "Pumpkin Boots",
   "item.pumpkinfever.pumpkin_iron_sword": "Pumpkin-Iron Sword",
   "item.pumpkinfever.pumpkin_dust": "Pumpkin Dust",
-  "item.pumpkinfever.candy": "Candy",
+  "item.pumpkinfever.lollipop": "Lollipop",
   "item.pumpkinfever.candy_basket": "Candy Basket",
   "item.pumpkinfever.pumpkin_fries": "Pumpkin Fries",
   "item.pumpkinfever.pumpkin_soup_cream": "Pumpkin Soup Cream",
   "item.pumpkinfever.pumpkin_infused_iron": "Pumpkin Infused Iron",
+  "item.pumpkinfever.bat_flesh": "Bat Flesh",
+  "item.pumpkinfever.bat_wing": "Bat Wing",
+  "item.pumpkinfever.bat_wings": "Bat Wings",
   "item.pumpkinfever.daredevil_spawn_egg": "Daredevil Spawn Egg",
   "item.pumpkinfever.headless_horseman_spawn_egg": "Headless Horseman Spawn Egg",
   "item.pumpkinfever.pumpkinno_spawn_egg": "Pumpkinno Spawn Egg",
@@ -21,5 +24,6 @@
   "entity.pumpkinfever.daredevil": "Daredevil",
   "entity.pumpkinfever.headless_horseman": "Headless Horseman",
   "entity.pumpkinfever.pumpkinno": "Pumpkinno",
-  "entity.pumpkinfever.pumpkinpo": "Pumpkinpo"
+  "entity.pumpkinfever.pumpkinpo": "Pumpkinpo",
+  "entity.minecraft.villager.pumpkinfever.candyman": "Candyman"
 }

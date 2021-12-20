@@ -15,9 +15,9 @@ public class ModEntityTypeRegistry
 //    public static final EntityType<VillagerEntity> VILLAGER =
 //    register("villager", EntityType.Builder.<VillagerEntity>create(VillagerEntity::new, EntityClassification.MISC).size(0.6F, 1.95F));
 
-    public static final EntityType<CandyMerchant> CANDY_MERCHANT_ENTITY_TYPE = EntityType.Builder.of(CandyMerchant::new, MobCategory.MISC)
-            .sized(0.6F, 1.95F)
-            .build(new ResourceLocation(PumpkinFever.MOD_ID, CandyMerchant.REGISTRY_NAME).toString());
+//    public static final EntityType<CandyMerchant> CANDY_MERCHANT_ENTITY_TYPE = EntityType.Builder.of(CandyMerchant::new, MobCategory.MISC)
+//            .sized(0.6F, 1.95F)
+//            .build(new ResourceLocation(PumpkinFever.MOD_ID, CandyMerchant.REGISTRY_NAME).toString());
 
     public static final EntityType<DaredevilEntity> DAREDEVIL_ENTITY_ENTITY_TYPE = EntityType.Builder
             .of(DaredevilEntity::new, MobCategory.MONSTER)
@@ -45,7 +45,6 @@ public class ModEntityTypeRegistry
 
     public static void registerEntityTypes(final IForgeRegistry<EntityType<?>> registry)
     {
-        registry.register(CANDY_MERCHANT_ENTITY_TYPE.setRegistryName(CandyMerchant.REGISTRY_NAME));
         registry.register(DAREDEVIL_ENTITY_ENTITY_TYPE.setRegistryName(DaredevilEntity.REGISTRY_NAME));
         registry.register(HEADLESS_HORSEMAN_ENTITY_ENTITY_TYPE.setRegistryName(HeadlessHorsemanEntity.REGISTRY_NAME));
         registry.register(PUMPKINNO_ENTITY_ENTITY_TYPE.setRegistryName(PumpkinnoEntity.REGISTRY_NAME));
@@ -55,7 +54,6 @@ public class ModEntityTypeRegistry
     @SubscribeEvent
     public static void onEntityAttributeRegister(EntityAttributeCreationEvent event)
     {
-        event.put(CANDY_MERCHANT_ENTITY_TYPE, CandyMerchant.createMobAttributes().build());
         event.put(DAREDEVIL_ENTITY_ENTITY_TYPE, DaredevilEntity.createMobAttributes().build());
         event.put(HEADLESS_HORSEMAN_ENTITY_ENTITY_TYPE, HeadlessHorsemanEntity.createMobAttributes().build());
         event.put(PUMPKINNO_ENTITY_ENTITY_TYPE, PumpkinnoEntity.createMobAttributes().build());

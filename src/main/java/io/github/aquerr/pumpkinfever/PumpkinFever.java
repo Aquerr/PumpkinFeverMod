@@ -1,7 +1,6 @@
 package io.github.aquerr.pumpkinfever;
 
 import io.github.aquerr.pumpkinfever.block.ModBlocks;
-import io.github.aquerr.pumpkinfever.client.renderer.CandyMerchantRenderer;
 import io.github.aquerr.pumpkinfever.client.renderer.DaredevilRenderer;
 import io.github.aquerr.pumpkinfever.client.renderer.HeadlessHorsemanRenderer;
 import io.github.aquerr.pumpkinfever.mob.ModEntityTypeRegistry;
@@ -63,7 +62,7 @@ public class PumpkinFever
     {
         EntityRenderers.register(ModEntityTypeRegistry.DAREDEVIL_ENTITY_ENTITY_TYPE, DaredevilRenderer::new);
         EntityRenderers.register(ModEntityTypeRegistry.HEADLESS_HORSEMAN_ENTITY_ENTITY_TYPE, HeadlessHorsemanRenderer::new);
-        EntityRenderers.register(ModEntityTypeRegistry.CANDY_MERCHANT_ENTITY_TYPE, CandyMerchantRenderer::new);
+//        EntityRenderers.register(ModEntityTypeRegistry.CANDY_MERCHANT_ENTITY_TYPE, CandyMerchantRenderer::new);
 
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.PUMPKIN_VINE_BLOCK, RenderType.cutout());
     }

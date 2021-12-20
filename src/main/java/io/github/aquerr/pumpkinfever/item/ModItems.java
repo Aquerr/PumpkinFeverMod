@@ -31,11 +31,14 @@ public class ModItems
 
     // Other Items
     public static final PumpkinDust PUMPKIN_DUST = new PumpkinDust();
-    public static final CandyItem CANDY = new CandyItem();
+    public static final LollipopItem CANDY = new LollipopItem();
     public static final CandyBasketItem CANDY_BASKET = new CandyBasketItem();
     public static final PumpkinFriesItem PUMPKIN_FRIES = new PumpkinFriesItem();
     public static final PumpkinSoupCreamItem PUMPKIN_SOUP_CREAM = new PumpkinSoupCreamItem();
     public static final PumpkinInfusedIron PUMPKIN_INFUSED_IRON = new PumpkinInfusedIron();
+    public static final BatFleshItem BAT_FLESH = new BatFleshItem();
+    public static final BatWingItem BAT_WING = new BatWingItem();
+    public static final BatWingsItem BAT_WINGS = new BatWingsItem();
 
     // Spawn Eggs
     public static final Item DAREDEVIL_SPAWN_EGG = new ForgeSpawnEggItem(() -> ModEntityTypeRegistry.DAREDEVIL_ENTITY_ENTITY_TYPE, 4996656, 986895, (new Item.Properties()).tab(PumpkinFeverItemGroup.getInstance())).setRegistryName("daredevil_spawn_egg");
@@ -58,6 +61,9 @@ public class ModItems
         registry.register(PUMPKIN_FRIES);
         registry.register(PUMPKIN_SOUP_CREAM);
         registry.register(PUMPKIN_INFUSED_IRON);
+        registry.register(BAT_FLESH);
+        registry.register(BAT_WING);
+        registry.register(BAT_WINGS);
 
         registry.register(PUMPKIN_SWORD);
 
