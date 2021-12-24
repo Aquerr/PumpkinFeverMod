@@ -1,28 +1,30 @@
-package io.github.aquerr.pumpkinfever.item.armor;
+package io.github.aquerr.pumpkinfever.item.armor.pumpkiniron;
 
+import io.github.aquerr.pumpkinfever.PumpkinFever;
+import io.github.aquerr.pumpkinfever.item.ModItems;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ArmorMaterial;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 
-public class PumpkinArmorMaterial implements ArmorMaterial
+public class PumpkinInfusedIronArmorMaterial implements ArmorMaterial
 {
-    private static final PumpkinArmorMaterial PUMPKIN_ARMOR_MATERIAL = new PumpkinArmorMaterial();
+    private static final PumpkinInfusedIronArmorMaterial PUMPKIN_INFUSED_IRON_ARMOR_MATERIAL = new PumpkinInfusedIronArmorMaterial();
 
     private static final int[] MAX_DAMAGE_ARRAY = new int[]{13, 15, 16, 11};
-    private static final int MAX_DAMAGE_FACTOR = 4;
+    private static final int MAX_DAMAGE_FACTOR = 28;
 
     // Currently same as leather armor
-    private final int[] damageReductionAmountArray = new int[]{1, 2, 3, 1};
+    private final int[] damageReductionAmountArray = new int[]{2, 6, 7, 2};
 
     public static ArmorMaterial getMaterial()
     {
-        return PUMPKIN_ARMOR_MATERIAL;
+        return PUMPKIN_INFUSED_IRON_ARMOR_MATERIAL;
     }
 
-    private PumpkinArmorMaterial()
+    private PumpkinInfusedIronArmorMaterial()
     {
 
     }
@@ -42,25 +44,25 @@ public class PumpkinArmorMaterial implements ArmorMaterial
     @Override
     public int getEnchantmentValue()
     {
-        return 17;
+        return 9;
     }
 
     @Override
     public SoundEvent getEquipSound()
     {
-        return SoundEvents.ARMOR_EQUIP_LEATHER;
+        return SoundEvents.ARMOR_EQUIP_IRON;
     }
 
     @Override
     public Ingredient getRepairIngredient()
     {
-        return Ingredient.of(Items.PUMPKIN);
+        return Ingredient.of(ModItems.PUMPKIN_INFUSED_IRON);
     }
 
     @Override
     public String getName()
     {
-        return "pumpkin";
+        return new ResourceLocation(PumpkinFever.MOD_ID, "pumpkin_infused_iron").toString();
     }
 
     @Override

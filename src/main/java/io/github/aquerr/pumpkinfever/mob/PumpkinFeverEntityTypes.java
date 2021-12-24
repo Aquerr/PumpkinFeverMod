@@ -10,7 +10,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.IForgeRegistry;
 
 @Mod.EventBusSubscriber(modid = PumpkinFever.MOD_ID ,bus = Mod.EventBusSubscriber.Bus.MOD)
-public class ModEntityTypeRegistry
+public class PumpkinFeverEntityTypes
 {
 //    public static final EntityType<VillagerEntity> VILLAGER =
 //    register("villager", EntityType.Builder.<VillagerEntity>create(VillagerEntity::new, EntityClassification.MISC).size(0.6F, 1.95F));
@@ -52,7 +52,7 @@ public class ModEntityTypeRegistry
     }
 
     @SubscribeEvent
-    public static void onEntityAttributeRegister(EntityAttributeCreationEvent event)
+    public static void onEntityAttributeRegister(final EntityAttributeCreationEvent event)
     {
         event.put(DAREDEVIL_ENTITY_ENTITY_TYPE, DaredevilEntity.createMobAttributes().build());
         event.put(HEADLESS_HORSEMAN_ENTITY_ENTITY_TYPE, HeadlessHorsemanEntity.createMobAttributes().build());

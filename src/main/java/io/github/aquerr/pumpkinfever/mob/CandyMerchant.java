@@ -28,7 +28,7 @@ public class CandyMerchant
     public static final PoiType CANDYMAN_POI_TYPE = new PoiType(CANDYMAN_REGISTRY_NAME, ImmutableSet.copyOf(Blocks.CARVED_PUMPKIN.getStateDefinition().getPossibleStates()), 1, 1)
             .setRegistryName(CANDYMAN_REGISTRY_NAME);
 
-    public static final VillagerProfession CANDY_MERCHAT_PROFESSION = new VillagerProfession(CANDYMAN_REGISTRY_NAME,
+    public static final VillagerProfession CANDY_MERCHANT_PROFESSION = new VillagerProfession(new ResourceLocation(PumpkinFever.MOD_ID, CANDYMAN_REGISTRY_NAME).toString(),
             CANDYMAN_POI_TYPE,
             ImmutableSet.of(),
             ImmutableSet.of(),

@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "pumpkinfever:item/pumpkin_infused_iron_chestplate"
+  }
+}

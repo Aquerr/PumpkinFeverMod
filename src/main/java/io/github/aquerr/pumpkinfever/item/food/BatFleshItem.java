@@ -1,4 +1,4 @@
-package io.github.aquerr.pumpkinfever.item;
+package io.github.aquerr.pumpkinfever.item.food;
 
 import io.github.aquerr.pumpkinfever.PumpkinFeverItemGroup;
 import net.minecraft.world.item.Item;

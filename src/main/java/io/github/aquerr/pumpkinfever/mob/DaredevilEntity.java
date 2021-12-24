@@ -1,11 +1,14 @@
 package io.github.aquerr.pumpkinfever.mob;
 
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.Mob;
+import net.minecraft.world.Difficulty;
+import net.minecraft.world.DifficultyInstance;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.attributes.AttributeMap;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.FloatGoal;
@@ -22,10 +25,19 @@ import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.horse.Horse;
 import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.entity.monster.Skeleton;
+import net.minecraft.world.entity.monster.Spider;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.AABB;
+import org.jetbrains.annotations.Nullable;
 
+import java.time.LocalDate;
+import java.time.temporal.ChronoField;
 import java.util.EnumSet;
 import java.util.List;
 
@@ -44,12 +56,12 @@ public class DaredevilEntity extends Horse
     protected void registerGoals()
     {
         this.goalSelector.addGoal(1, new RunAroundLikeCrazyGoal(this, 1.2D));
-        this.goalSelector.addGoal(4, new MeleeAttackGoal(this, 1.0D, false));
+        this.goalSelector.addGoal(4, new MeleeAttackGoal(this, 1.2D, false));
         this.goalSelector.addGoal(6, new WaterAvoidingRandomStrollGoal(this, 0.7D));
         this.goalSelector.addGoal(7, new LookAtPlayerGoal(this, Player.class, 6.0F));
         this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
 
-        this.nearestAttackablePlayerGoal = new NearestAttackableTargetGoal<>(this, Player.class, true);
+        this.nearestAttackablePlayerGoal = new NearestAttackableTargetGoal<>(this, Player.class, true, (livingEntity) -> !livingEntity.getUUID().equals(getOwnerUUID()));
 
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this).setAlertOthers(Monster.class));
         this.targetSelector.addGoal(2, nearestAttackablePlayerGoal);
@@ -202,5 +214,41 @@ public class DaredevilEntity extends Horse
                 else return !this.owner.isSpectator() && !((Player) this.owner).isCreative();
             }
         }
+    }
+
+    @Nullable
+    @Override
+    public SpawnGroupData finalizeSpawn(ServerLevelAccessor serverLevelAccessor, DifficultyInstance difficultyInstance, MobSpawnType mobSpawnType, @Nullable SpawnGroupData spawnGroupData, @Nullable CompoundTag compoundTag)
+    {
+        spawnGroupData = super.finalizeSpawn(serverLevelAccessor, difficultyInstance, mobSpawnType, spawnGroupData, compoundTag);
+        if (mobSpawnType == MobSpawnType.SPAWN_EGG)
+        {
+            // 50% chance to spawn Daredevil with Headless Horseman
+            if (serverLevelAccessor.getRandom().nextInt(100) < 50)
+            {
+                createRidingHeadlessHorseman(serverLevelAccessor, difficultyInstance, mobSpawnType);
+            }
+        }
+        else
+        {
+            // Always spawns with his owner - Headless Horseman
+            createRidingHeadlessHorseman(serverLevelAccessor, difficultyInstance, mobSpawnType);
+        }
+
+        return spawnGroupData;
+    }
+
+    @Override
+    public MobType getMobType()
+    {
+        return MobType.UNDEAD;
+    }
+
+    private void createRidingHeadlessHorseman(ServerLevelAccessor serverLevelAccessor, DifficultyInstance difficultyInstance, MobSpawnType mobSpawnType)
+    {
+        HeadlessHorsemanEntity headlessHorsemanEntity = PumpkinFeverEntityTypes.HEADLESS_HORSEMAN_ENTITY_ENTITY_TYPE.create(this.level);
+        headlessHorsemanEntity.moveTo(this.getX(), this.getY(), this.getZ(), this.getYRot(), 0.0F);
+        headlessHorsemanEntity.finalizeSpawn(serverLevelAccessor, difficultyInstance, mobSpawnType, null, null);
+        headlessHorsemanEntity.startRiding(this);
     }
 }

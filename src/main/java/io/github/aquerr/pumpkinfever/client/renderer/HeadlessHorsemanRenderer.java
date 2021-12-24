@@ -1,11 +1,13 @@
 package io.github.aquerr.pumpkinfever.client.renderer;
 
+import io.github.aquerr.pumpkinfever.PumpkinFever;
 import io.github.aquerr.pumpkinfever.mob.HeadlessHorsemanEntity;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.PlayerModel;
 import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.HumanoidMobRenderer;
+import net.minecraft.client.renderer.entity.layers.CapeLayer;
 import net.minecraft.client.renderer.entity.layers.HumanoidArmorLayer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
@@ -24,6 +26,6 @@ public class HeadlessHorsemanRenderer extends HumanoidMobRenderer<HeadlessHorsem
     @Override
     public ResourceLocation getTextureLocation(HeadlessHorsemanEntity context)
     {
-        return new ResourceLocation("textures/entity/skeleton/skeleton.png");
+        return new ResourceLocation(PumpkinFever.MOD_ID, "textures/entity/headless_horseman.png");
     }
 }

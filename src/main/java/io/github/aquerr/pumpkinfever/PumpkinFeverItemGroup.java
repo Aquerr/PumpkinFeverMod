@@ -23,6 +23,6 @@ public class PumpkinFeverItemGroup extends CreativeModeTab
     @Override
     public ItemStack makeIcon()
     {
-        return Items.JACK_O_LANTERN.getDefaultInstance();
+        return Items.CARVED_PUMPKIN.getDefaultInstance();
     }
 }

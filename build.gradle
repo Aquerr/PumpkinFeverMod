@@ -131,7 +131,7 @@ dependencies {
     compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}:${jei_version}:api")
     runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}:${jei_version}")
 
-    implementation "vazkii.patchouli:Patchouli:1.18.1-61"
+//    implementation fg.deobf("vazkii.patchouli:Patchouli:1.18.1-61")
 }
 
 // Example for how to get properties into the manifest for reading by the runtime..

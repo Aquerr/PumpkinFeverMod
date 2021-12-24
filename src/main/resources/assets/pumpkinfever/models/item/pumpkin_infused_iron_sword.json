@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "pumpkinfever:item/pumpkin_infused_iron_sword"
+  }
+}

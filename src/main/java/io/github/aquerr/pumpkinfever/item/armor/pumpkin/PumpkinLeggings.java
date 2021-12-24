@@ -1,4 +1,4 @@
-package io.github.aquerr.pumpkinfever.item.armor;
+package io.github.aquerr.pumpkinfever.item.armor.pumpkin;
 
 import io.github.aquerr.pumpkinfever.PumpkinFeverItemGroup;
 import net.minecraft.world.entity.EquipmentSlot;

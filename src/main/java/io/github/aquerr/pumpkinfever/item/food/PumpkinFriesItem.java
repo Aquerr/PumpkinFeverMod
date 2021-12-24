@@ -1,6 +1,7 @@
-package io.github.aquerr.pumpkinfever.item;
+package io.github.aquerr.pumpkinfever.item.food;
 
 import io.github.aquerr.pumpkinfever.PumpkinFeverItemGroup;
+import io.github.aquerr.pumpkinfever.item.food.ModFoods;
 import net.minecraft.world.item.Item;
 
 public class PumpkinFriesItem extends Item
