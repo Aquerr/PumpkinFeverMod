@@ -1,6 +1,7 @@
 {
 	"credit": "Made with Blockbench",
 	"ambientocclusion": false,
+	"render_type": "minecraft:cutout",
 	"textures": {
 		"particle": "pumpkinfever:block/pumpkin_vine",
 		"texture": "pumpkinfever:block/pumpkin_vine"

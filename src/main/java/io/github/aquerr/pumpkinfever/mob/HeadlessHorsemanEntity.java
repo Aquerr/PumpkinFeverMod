@@ -8,6 +8,7 @@ import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.MobType;
 import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.SpawnGroupData;
+import net.minecraft.world.entity.ai.attributes.AttributeMap;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.FloatGoal;
@@ -18,6 +19,7 @@ import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.animal.IronGolem;
+import net.minecraft.world.entity.animal.horse.Horse;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -38,7 +40,9 @@ public class HeadlessHorsemanEntity extends Monster
 
     public static AttributeSupplier.Builder createMobAttributes()
     {
-        return Monster.createMonsterAttributes().add(Attributes.MOVEMENT_SPEED, 0.25D);
+        return Horse.createBaseHorseAttributes()
+                .add(Attributes.FOLLOW_RANGE, 25.0D)
+                .add(Attributes.ATTACK_DAMAGE, 6);
     }
 
     @Override

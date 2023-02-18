@@ -15,9 +15,21 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 @OnlyIn(Dist.CLIENT)
 public class DaredevilRenderer extends AbstractHorseRenderer<DaredevilEntity, HorseModel<DaredevilEntity>>
 {
+//       public HorseRenderer(EntityRendererProvider.Context p_174167_) {
+//      super(p_174167_, new HorseModel<>(p_174167_.bakeLayer(ModelLayers.HORSE)), 1.1F);
+//      this.addLayer(new HorseMarkingLayer(this));
+//      this.addLayer(new HorseArmorLayer(this, p_174167_.getModelSet()));
+//   }
+//
+//   public ResourceLocation getTextureLocation(Horse p_114872_) {
+//      return LOCATION_BY_VARIANT.get(p_114872_.getVariant());
+//   }
+
     public DaredevilRenderer(EntityRendererProvider.Context context)
     {
         super(context, new HorseModel<>(context.bakeLayer(ModelLayers.HORSE)), 1.1F);
+//      this.addLayer(new HorseMarkingLayer(this));
+//      this.addLayer(new HorseArmorLayer(this, context.getModelSet()));
     }
 
     @Override

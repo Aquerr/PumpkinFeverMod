@@ -66,7 +66,9 @@ public class DaredevilEntity extends Horse
 
     public static AttributeSupplier.Builder createMobAttributes()
     {
-        return Horse.createBaseHorseAttributes().add(Attributes.FOLLOW_RANGE, 35.0D).add(Attributes.ATTACK_DAMAGE, 2);
+        return Horse.createBaseHorseAttributes()
+                .add(Attributes.FOLLOW_RANGE, 25.0D)
+                .add(Attributes.ATTACK_DAMAGE, 2);
     }
 
     @Override
@@ -244,5 +246,7 @@ public class DaredevilEntity extends Horse
         headlessHorsemanEntity.moveTo(this.getX(), this.getY(), this.getZ(), this.getYRot(), 0.0F);
         headlessHorsemanEntity.finalizeSpawn(serverLevelAccessor, difficultyInstance, mobSpawnType, null, null);
         headlessHorsemanEntity.startRiding(this);
+        setOwnerUUID(headlessHorsemanEntity.getUUID());
+        this.setTamed(true);
     }
 }

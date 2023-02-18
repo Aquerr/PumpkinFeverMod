@@ -1,15 +1,21 @@
 package io.github.aquerr.pumpkinfever.mob;
 
 import io.github.aquerr.pumpkinfever.PumpkinFever;
+import io.github.aquerr.pumpkinfever.client.renderer.DaredevilRenderer;
+import io.github.aquerr.pumpkinfever.client.renderer.HeadlessHorsemanRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
+import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
+
+@Mod.EventBusSubscriber(modid = PumpkinFever.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class PumpkinFeverEntityTypes
 {
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, PumpkinFever.MOD_ID);
