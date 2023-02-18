@@ -8,6 +8,6 @@ public class PumpkinFeverPoiTypes
 
     public static void registerPoiTypes(RegisterEvent.RegisterHelper<PoiType> registerHelper)
     {
-        registerHelper.register(CandyMerchant.REGISTRY_NAME, CandyMerchant.CANDYMAN_POI_TYPE);
+//        registerHelper.register(CandyMerchant.REGISTRY_NAME, CandyMerchant.CANDYMAN_POI_TYPE);
     }
 }

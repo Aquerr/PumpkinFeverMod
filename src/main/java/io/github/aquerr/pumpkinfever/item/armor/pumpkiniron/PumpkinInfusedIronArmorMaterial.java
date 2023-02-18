@@ -56,7 +56,7 @@ public class PumpkinInfusedIronArmorMaterial implements ArmorMaterial
     @Override
     public Ingredient getRepairIngredient()
     {
-        return Ingredient.of(ModItems.PUMPKIN_INFUSED_IRON);
+        return Ingredient.of(ModItems.PUMPKIN_INFUSED_IRON.get());
     }
 
     @Override

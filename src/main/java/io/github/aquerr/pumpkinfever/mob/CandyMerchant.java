@@ -35,7 +35,7 @@ public class CandyMerchant
 
     public static final Int2ObjectOpenHashMap TRADES = new Int2ObjectOpenHashMap<>(ImmutableMap.of(
             1, new VillagerTrades.ItemListing[]{new CandyMerchant.CandyMerchantOfferEmeraldForItems(Items.CARVED_PUMPKIN, 3, 16, 1, 2)},
-            2, new VillagerTrades.ItemListing[] {new CandyMerchant.CandyMerchantOfferEmeraldForItems(ModItems.LOLLIPOP_ITEM, 1, 16, 2, 1),
+            2, new VillagerTrades.ItemListing[] {new CandyMerchant.CandyMerchantOfferEmeraldForItems(ModItems.LOLLIPOP_ITEM.get(), 1, 16, 2, 1),
                     new CandyMerchant.CandyMerchantOfferEmeraldForItems(Items.PUMPKIN, 3, 16, 1, 2)}));
 
     public static class CandyMerchantOfferEmeraldForItems implements VillagerTrades.ItemListing

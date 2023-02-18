@@ -1,18 +1,16 @@
 package io.github.aquerr.pumpkinfever.block;
 
+import io.github.aquerr.pumpkinfever.PumpkinFever;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.registries.RegisterEvent;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
 public class ModBlocks
 {
-    public static final PumpkinVineBlock PUMPKIN_VINE_BLOCK = new PumpkinVineBlock();
-    public static final TinyPumpkin TINY_PUMPKIN = new TinyPumpkin();
-    public static final TinyPumpkinLantern TINY_PUMPKIN_LANTERN = new TinyPumpkinLantern();
+    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, PumpkinFever.MOD_ID);
 
-    public static void registerBlocks(RegisterEvent.RegisterHelper<Block> registry)
-    {
-        registry.register(PumpkinVineBlock.REGISTRY_NAME, PUMPKIN_VINE_BLOCK);
-        registry.register(TinyPumpkin.REGISTRY_NAME, TINY_PUMPKIN);
-        registry.register(TinyPumpkinLantern.REGISTRY_NAME, TINY_PUMPKIN_LANTERN);
-    }
+    public static final RegistryObject<PumpkinVineBlock> PUMPKIN_VINE_BLOCK = BLOCKS.register(PumpkinVineBlock.REGISTRY_NAME, PumpkinVineBlock::new);
+    public static final RegistryObject<TinyPumpkin> TINY_PUMPKIN = BLOCKS.register(TinyPumpkin.REGISTRY_NAME, TinyPumpkin::new);
+    public static final RegistryObject<TinyPumpkinLantern> TINY_PUMPKIN_LANTERN = BLOCKS.register(TinyPumpkinLantern.REGISTRY_NAME, TinyPumpkinLantern::new);
 }

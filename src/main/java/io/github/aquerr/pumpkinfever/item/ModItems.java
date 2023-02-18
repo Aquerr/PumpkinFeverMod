@@ -1,5 +1,6 @@
 package io.github.aquerr.pumpkinfever.item;
 
+import io.github.aquerr.pumpkinfever.PumpkinFever;
 import io.github.aquerr.pumpkinfever.PumpkinFeverItemGroup;
 import io.github.aquerr.pumpkinfever.block.ModBlocks;
 import io.github.aquerr.pumpkinfever.block.PumpkinVineBlock;
@@ -13,98 +14,68 @@ import io.github.aquerr.pumpkinfever.item.armor.pumpkiniron.PumpkinInfusedIronBo
 import io.github.aquerr.pumpkinfever.item.armor.pumpkiniron.PumpkinInfusedIronChestplate;
 import io.github.aquerr.pumpkinfever.item.armor.pumpkiniron.PumpkinInfusedIronHelmet;
 import io.github.aquerr.pumpkinfever.item.armor.pumpkiniron.PumpkinInfusedIronLeggings;
-import io.github.aquerr.pumpkinfever.item.food.*;
+import io.github.aquerr.pumpkinfever.item.food.BatFleshItem;
+import io.github.aquerr.pumpkinfever.item.food.CandyBasketItem;
+import io.github.aquerr.pumpkinfever.item.food.LollipopItem;
+import io.github.aquerr.pumpkinfever.item.food.PumpkinFriesItem;
+import io.github.aquerr.pumpkinfever.item.food.PumpkinSoupCreamItem;
 import io.github.aquerr.pumpkinfever.item.tool.pumpkin.PumpkinSword;
-import io.github.aquerr.pumpkinfever.item.tool.pumpkiniron.*;
+import io.github.aquerr.pumpkinfever.item.tool.pumpkiniron.PumpkinInfusedIronAxe;
+import io.github.aquerr.pumpkinfever.item.tool.pumpkiniron.PumpkinInfusedIronHoe;
+import io.github.aquerr.pumpkinfever.item.tool.pumpkiniron.PumpkinInfusedIronPickaxe;
+import io.github.aquerr.pumpkinfever.item.tool.pumpkiniron.PumpkinInfusedIronShovel;
+import io.github.aquerr.pumpkinfever.item.tool.pumpkiniron.PumpkinInfusedIronSword;
+import io.github.aquerr.pumpkinfever.mob.DaredevilEntity;
+import io.github.aquerr.pumpkinfever.mob.HeadlessHorsemanEntity;
 import io.github.aquerr.pumpkinfever.mob.PumpkinFeverEntityTypes;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.common.ForgeSpawnEggItem;
-import net.minecraftforge.registries.RegisterEvent;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
 public class ModItems
 {
+    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, PumpkinFever.MOD_ID);
+
     // BlockItems
-    public static final Item PUMPKIN_VINE = new BlockItem(ModBlocks.PUMPKIN_VINE_BLOCK, new Item.Properties().tab(PumpkinFeverItemGroup.getInstance()));
-    public static final Item TINY_PUMPKIN = new BlockItem(ModBlocks.TINY_PUMPKIN, new Item.Properties().tab(PumpkinFeverItemGroup.getInstance()));
-    public static final Item TINY_PUMPKIN_LANTERN = new BlockItem(ModBlocks.TINY_PUMPKIN_LANTERN, new Item.Properties().tab(PumpkinFeverItemGroup.getInstance()));
+    public static final RegistryObject<Item> PUMPKIN_VINE = ITEMS.register(PumpkinVineBlock.REGISTRY_NAME, () -> new BlockItem(ModBlocks.PUMPKIN_VINE_BLOCK.get(), new Item.Properties().tab(PumpkinFeverItemGroup.getInstance())));
+    public static final RegistryObject<Item> TINY_PUMPKIN = ITEMS.register(TinyPumpkin.REGISTRY_NAME, () -> new BlockItem(ModBlocks.TINY_PUMPKIN.get(), new Item.Properties().tab(PumpkinFeverItemGroup.getInstance())));
+    public static final RegistryObject<Item> TINY_PUMPKIN_LANTERN = ITEMS.register(TinyPumpkinLantern.REGISTRY_NAME, () -> new BlockItem(ModBlocks.TINY_PUMPKIN_LANTERN.get(), new Item.Properties().tab(PumpkinFeverItemGroup.getInstance())));
 
     // Armor
-    public static final PumpkinHelmet PUMPKIN_HELMET = new PumpkinHelmet();
-    public static final PumpkinChestplate PUMPKIN_CHESTPLATE = new PumpkinChestplate();
-    public static final PumpkinLeggings PUMPKIN_LEGGINGS = new PumpkinLeggings();
-    public static final PumpkinBoots PUMPKIN_BOOTS = new PumpkinBoots();
+    public static final RegistryObject<PumpkinHelmet> PUMPKIN_HELMET = ITEMS.register(PumpkinHelmet.REGISTRY_NAME, PumpkinHelmet::new);
+    public static final RegistryObject<PumpkinChestplate> PUMPKIN_CHESTPLATE = ITEMS.register(PumpkinChestplate.REGISTRY_NAME, PumpkinChestplate::new);
+    public static final RegistryObject<PumpkinLeggings> PUMPKIN_LEGGINGS = ITEMS.register(PumpkinLeggings.REGISTRY_NAME, PumpkinLeggings::new);
+    public static final RegistryObject<PumpkinBoots> PUMPKIN_BOOTS = ITEMS.register(PumpkinBoots.REGISTRY_NAME, PumpkinBoots::new);
 
-    public static final PumpkinInfusedIronHelmet PUMPKIN_INFUSED_IRON_HELMET = new PumpkinInfusedIronHelmet();
-    public static final PumpkinInfusedIronChestplate PUMPKIN_INFUSED_IRON_CHESTPLATE = new PumpkinInfusedIronChestplate();
-    public static final PumpkinInfusedIronLeggings PUMPKIN_INFUSED_IRON_LEGGINGS = new PumpkinInfusedIronLeggings();
-    public static final PumpkinInfusedIronBoots PUMPKIN_INFUSED_IRON_BOOTS = new PumpkinInfusedIronBoots();
+    public static final RegistryObject<PumpkinInfusedIronHelmet> PUMPKIN_INFUSED_IRON_HELMET = ITEMS.register(PumpkinInfusedIronHelmet.REGISTRY_NAME, PumpkinInfusedIronHelmet::new);
+    public static final RegistryObject<PumpkinInfusedIronChestplate> PUMPKIN_INFUSED_IRON_CHESTPLATE = ITEMS.register(PumpkinInfusedIronChestplate.REGISTRY_NAME, PumpkinInfusedIronChestplate::new);
+    public static final RegistryObject<PumpkinInfusedIronLeggings> PUMPKIN_INFUSED_IRON_LEGGINGS = ITEMS.register(PumpkinInfusedIronLeggings.REGISTRY_NAME, PumpkinInfusedIronLeggings::new);
+    public static final RegistryObject<PumpkinInfusedIronBoots> PUMPKIN_INFUSED_IRON_BOOTS = ITEMS.register(PumpkinInfusedIronBoots.REGISTRY_NAME, PumpkinInfusedIronBoots::new);
 
     // Pumpkin tools
-    public static final PumpkinSword PUMPKIN_SWORD = new PumpkinSword();
-    public static final PumpkinInfusedIronSword PUMPKIN_INFUSED_IRON_SWORD = new PumpkinInfusedIronSword();
-    public static final PumpkinInfusedIronShovel PUMPKIN_INFUSED_IRON_SHOVEL = new PumpkinInfusedIronShovel();
-    public static final PumpkinInfusedIronHoe PUMPKIN_INFUSED_IRON_HOE = new PumpkinInfusedIronHoe();
-    public static final PumpkinInfusedIronAxe PUMPKIN_INFUSED_IRON_AXE = new PumpkinInfusedIronAxe();
-    public static final PumpkinInfusedIronPickaxe PUMPKIN_INFUSED_IRON_PICKAXE = new PumpkinInfusedIronPickaxe();
+    public static final RegistryObject<PumpkinSword> PUMPKIN_SWORD = ITEMS.register(PumpkinSword.REGISTRY_NAME, PumpkinSword::new);
+    public static final RegistryObject<PumpkinInfusedIronSword> PUMPKIN_INFUSED_IRON_SWORD = ITEMS.register(PumpkinInfusedIronSword.REGISTRY_NAME, PumpkinInfusedIronSword::new);
+    public static final RegistryObject<PumpkinInfusedIronShovel> PUMPKIN_INFUSED_IRON_SHOVEL = ITEMS.register(PumpkinInfusedIronShovel.REGISTRY_NAME, PumpkinInfusedIronShovel::new);
+    public static final RegistryObject<PumpkinInfusedIronHoe> PUMPKIN_INFUSED_IRON_HOE = ITEMS.register(PumpkinInfusedIronHoe.REGISTRY_NAME, PumpkinInfusedIronHoe::new);
+    public static final RegistryObject<PumpkinInfusedIronAxe> PUMPKIN_INFUSED_IRON_AXE = ITEMS.register(PumpkinInfusedIronAxe.REGISTRY_NAME, PumpkinInfusedIronAxe::new);
+    public static final RegistryObject<PumpkinInfusedIronPickaxe> PUMPKIN_INFUSED_IRON_PICKAXE = ITEMS.register(PumpkinInfusedIronPickaxe.REGISTRY_NAME, PumpkinInfusedIronPickaxe::new);
 
     // Other Items
-    public static final PumpkinDust PUMPKIN_DUST = new PumpkinDust();
-    public static final LollipopItem LOLLIPOP_ITEM = new LollipopItem();
-    public static final CandyBasketItem CANDY_BASKET = new CandyBasketItem();
-    public static final PumpkinFriesItem PUMPKIN_FRIES = new PumpkinFriesItem();
-    public static final PumpkinSoupCreamItem PUMPKIN_SOUP_CREAM = new PumpkinSoupCreamItem();
-    public static final PumpkinInfusedIron PUMPKIN_INFUSED_IRON = new PumpkinInfusedIron();
-    public static final BatFleshItem BAT_FLESH = new BatFleshItem();
-    public static final BatWingItem BAT_WING = new BatWingItem();
-    public static final BatWingsItem BAT_WINGS = new BatWingsItem();
-    public static final CrossItem CROSS_ITEM = new CrossItem();
+    public static final RegistryObject<PumpkinDust> PUMPKIN_DUST = ITEMS.register(PumpkinDust.REGISTRY_NAME, PumpkinDust::new);
+    public static final RegistryObject<LollipopItem> LOLLIPOP_ITEM = ITEMS.register(LollipopItem.REGISTRY_NAME, LollipopItem::new);
+    public static final RegistryObject<CandyBasketItem> CANDY_BASKET = ITEMS.register(CandyBasketItem.REGISTRY_NAME, CandyBasketItem::new);
+    public static final RegistryObject<PumpkinFriesItem> PUMPKIN_FRIES = ITEMS.register(PumpkinFriesItem.REGISTRY_NAME, PumpkinFriesItem::new);
+    public static final RegistryObject<PumpkinSoupCreamItem> PUMPKIN_SOUP_CREAM = ITEMS.register(PumpkinSoupCreamItem.REGISTRY_NAME, PumpkinSoupCreamItem::new);
+    public static final RegistryObject<PumpkinInfusedIron> PUMPKIN_INFUSED_IRON = ITEMS.register(PumpkinInfusedIron.REGISTRY_NAME, PumpkinInfusedIron::new);
+    public static final RegistryObject<BatFleshItem> BAT_FLESH = ITEMS.register(BatFleshItem.REGISTRY_NAME, BatFleshItem::new);
+    public static final RegistryObject<BatWingItem> BAT_WING = ITEMS.register(BatWingItem.REGISTRY_NAME, BatWingItem::new);
+    public static final RegistryObject<BatWingsItem> BAT_WINGS = ITEMS.register(BatWingsItem.REGISTRY_NAME, BatWingsItem::new);
+    public static final RegistryObject<CrossItem> CROSS_ITEM = ITEMS.register(CrossItem.REGISTRY_NAME, CrossItem::new);
 
     // Spawn Eggs
-//    public static final Item DAREDEVIL_SPAWN_EGG = new ForgeSpawnEggItem(() -> PumpkinFeverEntityTypes.DAREDEVIL_ENTITY_ENTITY_TYPE.get(), 4996656, 986895, (new Item.Properties()).tab(PumpkinFeverItemGroup.getInstance()));
-//    public static final Item HEADLESS_HORSEMAN_SPAWN_EGG = new ForgeSpawnEggItem(() -> PumpkinFeverEntityTypes.HEADLESS_HORSEMAN_ENTITY_ENTITY_TYPE.get(), 4996656, 986895, (new Item.Properties()).tab(PumpkinFeverItemGroup.getInstance()));
-
-    public static void registerItems(RegisterEvent.RegisterHelper<Item> registry)
-    {
-        registry.register(PumpkinVineBlock.REGISTRY_NAME, PUMPKIN_VINE);
-        registry.register(TinyPumpkin.REGISTRY_NAME, TINY_PUMPKIN);
-        registry.register(TinyPumpkinLantern.REGISTRY_NAME, TINY_PUMPKIN_LANTERN);
-
-        // Armor -- Start
-        registry.register(PumpkinHelmet.REGISTRY_NAME, PUMPKIN_HELMET);
-        registry.register(PumpkinChestplate.REGISTRY_NAME, PUMPKIN_CHESTPLATE);
-        registry.register(PumpkinLeggings.REGISTRY_NAME, PUMPKIN_LEGGINGS);
-        registry.register(PumpkinBoots.REGISTRY_NAME, PUMPKIN_BOOTS);
-
-        registry.register(PumpkinInfusedIronHelmet.REGISTRY_NAME, PUMPKIN_INFUSED_IRON_HELMET);
-        registry.register(PumpkinInfusedIronChestplate.REGISTRY_NAME, PUMPKIN_INFUSED_IRON_CHESTPLATE);
-        registry.register(PumpkinInfusedIronLeggings.REGISTRY_NAME, PUMPKIN_INFUSED_IRON_LEGGINGS);
-        registry.register(PumpkinInfusedIronBoots.REGISTRY_NAME, PUMPKIN_INFUSED_IRON_BOOTS);
-        // Armor -- End
-
-        registry.register(PumpkinDust.REGISTRY_NAME, PUMPKIN_DUST);
-        registry.register(LollipopItem.REGISTRY_NAME, LOLLIPOP_ITEM);
-        registry.register(CandyBasketItem.REGISTRY_NAME, CANDY_BASKET);
-        registry.register(PumpkinFriesItem.REGISTRY_NAME, PUMPKIN_FRIES);
-        registry.register(PumpkinSoupCreamItem.REGISTRY_NAME, PUMPKIN_SOUP_CREAM);
-        registry.register(PumpkinInfusedIron.REGISTRY_NAME, PUMPKIN_INFUSED_IRON);
-        registry.register(BatFleshItem.REGISTRY_NAME, BAT_FLESH);
-        registry.register(BatWingItem.REGISTRY_NAME, BAT_WING);
-        registry.register(BatWingsItem.REGISTRY_NAME, BAT_WINGS);
-        registry.register(CrossItem.REGISTRY_NAME, CROSS_ITEM);
-
-        // Tools -- Start
-        registry.register(PumpkinSword.REGISTRY_NAME, PUMPKIN_SWORD);
-        registry.register(PumpkinInfusedIronSword.REGISTRY_NAME, PUMPKIN_INFUSED_IRON_SWORD);
-        registry.register(PumpkinInfusedIronHoe.REGISTRY_NAME, PUMPKIN_INFUSED_IRON_HOE);
-        registry.register(PumpkinInfusedIronShovel.REGISTRY_NAME, PUMPKIN_INFUSED_IRON_SHOVEL);
-        registry.register(PumpkinInfusedIronAxe.REGISTRY_NAME, PUMPKIN_INFUSED_IRON_AXE);
-        registry.register(PumpkinInfusedIronPickaxe.REGISTRY_NAME, PUMPKIN_INFUSED_IRON_PICKAXE);
-        // Tools -- End
-
-        // SpawnEggs -- Start
-//        registry.register("daredevil_spawn_egg", DAREDEVIL_SPAWN_EGG);
-//        registry.register("headless_horseman_spawn_egg", HEADLESS_HORSEMAN_SPAWN_EGG);
-        // SpawnEggs -- Stop
-    }
+    public static final RegistryObject<Item> DAREDEVIL_SPAWN_EGG = ITEMS.register(DaredevilEntity.REGISTRY_NAME + "_spawn_egg", () -> new ForgeSpawnEggItem(PumpkinFeverEntityTypes.DAREDEVIL_ENTITY_ENTITY_TYPE, 4996656, 986895, (new Item.Properties()).tab(PumpkinFeverItemGroup.getInstance())));
+    public static final RegistryObject<Item> HEADLESS_HORSEMAN_SPAWN_EGG = ITEMS.register(HeadlessHorsemanEntity.REGISTRY_NAME + "_spawn_egg", () -> new ForgeSpawnEggItem(PumpkinFeverEntityTypes.HEADLESS_HORSEMAN_ENTITY_ENTITY_TYPE, 4996656, 986895, (new Item.Properties()).tab(PumpkinFeverItemGroup.getInstance())));
 }
