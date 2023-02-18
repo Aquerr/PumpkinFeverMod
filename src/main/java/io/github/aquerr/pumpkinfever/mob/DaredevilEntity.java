@@ -3,12 +3,13 @@ package io.github.aquerr.pumpkinfever.mob;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.Difficulty;
 import net.minecraft.world.DifficultyInstance;
-import net.minecraft.world.effect.MobEffect;
-import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.ai.attributes.AttributeMap;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.MobType;
+import net.minecraft.world.entity.SpawnGroupData;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.FloatGoal;
@@ -25,19 +26,12 @@ import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.horse.Horse;
 import net.minecraft.world.entity.monster.Monster;
-import net.minecraft.world.entity.monster.Skeleton;
-import net.minecraft.world.entity.monster.Spider;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.AABB;
 import org.jetbrains.annotations.Nullable;
 
-import java.time.LocalDate;
-import java.time.temporal.ChronoField;
 import java.util.EnumSet;
 import java.util.List;
 
@@ -87,7 +81,7 @@ public class DaredevilEntity extends Horse
                     this.level.addParticle(ParticleTypes.SMOKE, this.getRandomX(0.5D), this.getRandomY(), this.getRandomZ(0.5D), 0.0D, 0.0D, 0.0D);
                 }
 
-                if (canBeControlledByRider())
+                if (hasControllingPassenger())
                 {
                     if (this.random.nextInt(100) <= 40)
                     {
@@ -246,7 +240,7 @@ public class DaredevilEntity extends Horse
 
     private void createRidingHeadlessHorseman(ServerLevelAccessor serverLevelAccessor, DifficultyInstance difficultyInstance, MobSpawnType mobSpawnType)
     {
-        HeadlessHorsemanEntity headlessHorsemanEntity = PumpkinFeverEntityTypes.HEADLESS_HORSEMAN_ENTITY_ENTITY_TYPE.create(this.level);
+        HeadlessHorsemanEntity headlessHorsemanEntity = PumpkinFeverEntityTypes.HEADLESS_HORSEMAN_ENTITY_ENTITY_TYPE.get().create(this.level);
         headlessHorsemanEntity.moveTo(this.getX(), this.getY(), this.getZ(), this.getYRot(), 0.0F);
         headlessHorsemanEntity.finalizeSpawn(serverLevelAccessor, difficultyInstance, mobSpawnType, null, null);
         headlessHorsemanEntity.startRiding(this);

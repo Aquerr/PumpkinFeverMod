@@ -6,9 +6,10 @@ import net.minecraft.world.item.ArmorItem;
 
 public class PumpkinBoots extends ArmorItem
 {
+    public static final String REGISTRY_NAME = "pumpkin_boots";
+
     public PumpkinBoots()
     {
         super(PumpkinArmorMaterial.getMaterial(), EquipmentSlot.FEET, new Properties().tab(PumpkinFeverItemGroup.getInstance()));
-        setRegistryName("pumpkin_boots");
     }
 }

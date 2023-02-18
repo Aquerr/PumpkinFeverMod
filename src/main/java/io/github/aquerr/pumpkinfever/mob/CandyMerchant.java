@@ -7,6 +7,7 @@ import io.github.aquerr.pumpkinfever.item.ModItems;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.ai.village.poi.PoiType;
 import net.minecraft.world.entity.npc.VillagerProfession;
@@ -19,25 +20,22 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.Random;
-
 public class CandyMerchant
 {
-    private static final String CANDYMAN_REGISTRY_NAME = "candyman";
+    public static final String REGISTRY_NAME = "candyman";
 
-    public static final PoiType CANDYMAN_POI_TYPE = new PoiType(CANDYMAN_REGISTRY_NAME, ImmutableSet.copyOf(Blocks.CARVED_PUMPKIN.getStateDefinition().getPossibleStates()), 1, 1)
-            .setRegistryName(CANDYMAN_REGISTRY_NAME);
+    public static final PoiType CANDYMAN_POI_TYPE = new PoiType(ImmutableSet.copyOf(Blocks.CARVED_PUMPKIN.getStateDefinition().getPossibleStates()), 1, 1);
 
-    public static final VillagerProfession CANDY_MERCHANT_PROFESSION = new VillagerProfession(new ResourceLocation(PumpkinFever.MOD_ID, CANDYMAN_REGISTRY_NAME).toString(),
-            CANDYMAN_POI_TYPE,
+    public static final VillagerProfession CANDY_MERCHANT_PROFESSION = new VillagerProfession(new ResourceLocation(PumpkinFever.MOD_ID, REGISTRY_NAME).toString(),
+            (typeHolder) -> typeHolder.get().equals(CANDYMAN_POI_TYPE),
+            (poiType) -> poiType.get().equals(CANDYMAN_POI_TYPE),
             ImmutableSet.of(),
             ImmutableSet.of(),
-            SoundEvents.VILLAGER_CELEBRATE)
-            .setRegistryName(new ResourceLocation(PumpkinFever.MOD_ID, CANDYMAN_REGISTRY_NAME).toString());
+            SoundEvents.VILLAGER_CELEBRATE);
 
     public static final Int2ObjectOpenHashMap TRADES = new Int2ObjectOpenHashMap<>(ImmutableMap.of(
             1, new VillagerTrades.ItemListing[]{new CandyMerchant.CandyMerchantOfferEmeraldForItems(Items.CARVED_PUMPKIN, 3, 16, 1, 2)},
-            2, new VillagerTrades.ItemListing[] {new CandyMerchant.CandyMerchantOfferEmeraldForItems(ModItems.CANDY, 1, 16, 2, 1),
+            2, new VillagerTrades.ItemListing[] {new CandyMerchant.CandyMerchantOfferEmeraldForItems(ModItems.LOLLIPOP_ITEM, 1, 16, 2, 1),
                     new CandyMerchant.CandyMerchantOfferEmeraldForItems(Items.PUMPKIN, 3, 16, 1, 2)}));
 
     public static class CandyMerchantOfferEmeraldForItems implements VillagerTrades.ItemListing
@@ -60,7 +58,7 @@ public class CandyMerchant
 
         @Nullable
         @Override
-        public MerchantOffer getOffer(Entity entity, Random random)
+        public MerchantOffer getOffer(Entity p_219693_, RandomSource p_219694_)
         {
             return new MerchantOffer(
                     new ItemStack(Items.EMERALD, cost),

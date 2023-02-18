@@ -32,6 +32,8 @@ import java.util.Map;
 //TODO: Should connect to pumpkins and other pumpkin vines like glass pane.
 public class PumpkinVineBlock extends BushBlock implements IForgeShearable, SimpleWaterloggedBlock
 {
+    public static final String REGISTRY_NAME = "pumpkin_vine";
+
     public static final BooleanProperty UP = BlockStateProperties.UP;
     public static final BooleanProperty DOWN = BlockStateProperties.DOWN;
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
@@ -68,7 +70,6 @@ public class PumpkinVineBlock extends BushBlock implements IForgeShearable, Simp
                 .strength(1.0F)
                 .sound(SoundType.GRASS));
 
-        setRegistryName("pumpkin_vine");
 //        this.registerDefaultState(this.stateDefinition.any().setValue(PICKLES, Integer.valueOf(1)).setValue(WATERLOGGED, Boolean.valueOf(true)));
 
         this.registerDefaultState(this.stateDefinition.any()

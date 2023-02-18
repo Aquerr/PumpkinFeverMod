@@ -7,9 +7,10 @@ import net.minecraft.world.item.Tiers;
 
 public class PumpkinInfusedIronSword extends SwordItem
 {
+    public static final String REGISTRY_NAME = "pumpkin_infused_iron_sword";
+
     public PumpkinInfusedIronSword()
     {
         super(Tiers.DIAMOND, 3, -2.4f, new Item.Properties().tab(PumpkinFeverItemGroup.getInstance()));
-        setRegistryName("pumpkin_infused_iron_sword");
     }
 }

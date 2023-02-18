@@ -6,9 +6,10 @@ import net.minecraft.world.item.Tiers;
 
 public class PumpkinSword extends SwordItem
 {
+    public static final String REGISTRY_NAME = "pumpkin_sword";
+
     public PumpkinSword()
     {
         super(Tiers.WOOD, 3, -2.4f, new Properties().tab(PumpkinFeverItemGroup.getInstance()));
-        setRegistryName("pumpkin_sword");
     }
 }

@@ -1,13 +1,6 @@
 package io.github.aquerr.pumpkinfever;
 
-import io.github.aquerr.pumpkinfever.block.ModBlocks;
-import io.github.aquerr.pumpkinfever.client.renderer.DaredevilRenderer;
-import io.github.aquerr.pumpkinfever.client.renderer.HeadlessHorsemanRenderer;
-import io.github.aquerr.pumpkinfever.mob.PumpkinFeverEntityTypes;
 import io.github.aquerr.pumpkinfever.network.PumpkinFeverPacketHandler;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
@@ -60,11 +53,11 @@ public class PumpkinFever
 
     private void registerRenderers()
     {
-        EntityRenderers.register(PumpkinFeverEntityTypes.DAREDEVIL_ENTITY_ENTITY_TYPE, DaredevilRenderer::new);
-        EntityRenderers.register(PumpkinFeverEntityTypes.HEADLESS_HORSEMAN_ENTITY_ENTITY_TYPE, HeadlessHorsemanRenderer::new);
+//        EntityRenderers.register(PumpkinFeverEntityTypes.DAREDEVIL_ENTITY_ENTITY_TYPE.get(), DaredevilRenderer::new);
+//        EntityRenderers.register(PumpkinFeverEntityTypes.HEADLESS_HORSEMAN_ENTITY_ENTITY_TYPE.get(), HeadlessHorsemanRenderer::new);
 //        EntityRenderers.register(ModEntityTypeRegistry.CANDY_MERCHANT_ENTITY_TYPE, CandyMerchantRenderer::new);
 
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.PUMPKIN_VINE_BLOCK, RenderType.cutout());
+//        ItemBlockRenderTypes.setRenderLayer(ModBlocks.PUMPKIN_VINE_BLOCK, RenderType.cutout());
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event)

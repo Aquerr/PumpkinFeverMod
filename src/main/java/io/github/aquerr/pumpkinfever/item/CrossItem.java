@@ -8,10 +8,11 @@ import net.minecraft.world.item.context.UseOnContext;
 
 public class CrossItem extends Item
 {
+    public static final String REGISTRY_NAME = "cross";
+
     public CrossItem()
     {
         super(new Properties().tab(PumpkinFeverItemGroup.getInstance()).rarity(Rarity.UNCOMMON).setNoRepair().durability(20));
-        setRegistryName("cross");
     }
 
     @Override

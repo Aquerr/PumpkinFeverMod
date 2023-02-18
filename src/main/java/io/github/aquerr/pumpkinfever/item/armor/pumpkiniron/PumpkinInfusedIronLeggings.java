@@ -7,9 +7,10 @@ import net.minecraft.world.item.ArmorItem;
 
 public class PumpkinInfusedIronLeggings extends ArmorItem
 {
+    public static final String REGISTRY_NAME = "pumpkin_infused_iron_leggings";
+
     public PumpkinInfusedIronLeggings()
     {
         super(PumpkinInfusedIronArmorMaterial.getMaterial(), EquipmentSlot.LEGS, new Properties().tab(PumpkinFeverItemGroup.getInstance()));
-        setRegistryName("pumpkin_infused_iron_leggings");
     }
 }

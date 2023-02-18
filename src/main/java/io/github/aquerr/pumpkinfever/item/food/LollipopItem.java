@@ -8,10 +8,11 @@ import net.minecraft.world.level.Level;
 
 public class LollipopItem extends Item
 {
+    public static final String REGISTRY_NAME = "lollipop";
+
     public LollipopItem()
     {
         super(new Properties().food(ModFoods.LOLLIPOP).tab(PumpkinFeverItemGroup.getInstance()));
-        setRegistryName("lollipop");
     }
 
     @Override

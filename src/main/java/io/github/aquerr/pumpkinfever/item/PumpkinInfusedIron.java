@@ -5,9 +5,10 @@ import net.minecraft.world.item.Item;
 
 public class PumpkinInfusedIron extends Item
 {
+    public static final String REGISTRY_NAME = "pumpkin_infused_iron";
+
     public PumpkinInfusedIron()
     {
         super(new Properties().tab(PumpkinFeverItemGroup.getInstance()));
-        setRegistryName("pumpkin_infused_iron");
     }
 }

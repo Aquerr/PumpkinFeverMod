@@ -6,9 +6,10 @@ import net.minecraft.world.item.ArmorItem;
 
 public class PumpkinChestplate extends ArmorItem
 {
+    public static final String REGISTRY_NAME = "pumpkin_chestplate";
+
     public PumpkinChestplate()
     {
         super(PumpkinArmorMaterial.getMaterial(), EquipmentSlot.CHEST, new Properties().tab(PumpkinFeverItemGroup.getInstance()));
-        setRegistryName("pumpkin_chestplate");
     }
 }
