@@ -10,6 +10,6 @@ public class TinyPumpkin extends HorizontalDirectionalBlock
 
     public TinyPumpkin()
     {
-        super(Properties.of(Material.VEGETABLE).strength(1.0F).requiresCorrectToolForDrops().sound(SoundType.WOOD));
+        super(Properties.of(Material.VEGETABLE).strength(1.0F).sound(SoundType.WOOD));
     }
 }

@@ -2,14 +2,16 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
+      "item": "minecraft:iron_ingot"
+    },
+    {
       "item": "pumpkinfever:pumpkin_dust"
     },
     {
-      "item": "minecraft:iron_ingot"
+      "item": "pumpkinfever:pumpkin_dust"
     }
   ],
   "result": {
-    "item": "pumpkinfever:pumpkin_infused_iron",
-    "count": 1
+    "item": "pumpkinfever:pumpkin_infused_iron"
   }
 }

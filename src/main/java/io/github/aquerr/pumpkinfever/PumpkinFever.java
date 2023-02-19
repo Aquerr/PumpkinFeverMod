@@ -1,24 +1,14 @@
 package io.github.aquerr.pumpkinfever;
 
 import io.github.aquerr.pumpkinfever.block.ModBlocks;
-import io.github.aquerr.pumpkinfever.client.renderer.DaredevilRenderer;
-import io.github.aquerr.pumpkinfever.client.renderer.HeadlessHorsemanRenderer;
 import io.github.aquerr.pumpkinfever.item.ModItems;
 import io.github.aquerr.pumpkinfever.mob.PumpkinFeverEntityTypes;
-import io.github.aquerr.pumpkinfever.mob.PumpkinFeverPoiTypes;
 import io.github.aquerr.pumpkinfever.mob.PumpkinFeverVillagerProfessions;
 import io.github.aquerr.pumpkinfever.network.PumpkinFeverPacketHandler;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.entity.EntityRenderers;
-import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
-import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
@@ -46,6 +36,7 @@ public class PumpkinFever
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         // Register the commonSetup method for modloading
+        modEventBus.addListener(this::setup);
         modEventBus.addListener(this::commonSetup);
 
         // Register the Deferred Register to the mod event bus so blocks get registered

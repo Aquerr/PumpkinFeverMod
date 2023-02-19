@@ -11,6 +11,6 @@ public class TinyPumpkinLantern extends HorizontalDirectionalBlock
 
     public TinyPumpkinLantern()
     {
-        super(Properties.of(Material.VEGETABLE).strength(1.0F).lightLevel(value -> 15).requiresCorrectToolForDrops().sound(SoundType.WOOD));
+        super(Properties.of(Material.VEGETABLE).strength(1.0F).lightLevel(value -> 15).sound(SoundType.WOOD));
     }
 }
