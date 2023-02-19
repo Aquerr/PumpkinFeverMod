@@ -1,4 +1,4 @@
-package io.github.aquerr.pumpkinfever.data.model;
+package io.github.aquerr.pumpkinfever.datagenerator.model;
 
 import io.github.aquerr.pumpkinfever.PumpkinFever;
 import io.github.aquerr.pumpkinfever.item.ModItems;

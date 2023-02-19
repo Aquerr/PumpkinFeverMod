@@ -1,4 +1,4 @@
-package io.github.aquerr.pumpkinfever.data.loot;
+package io.github.aquerr.pumpkinfever.datagenerator.loot;
 
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.data.DataGenerator;

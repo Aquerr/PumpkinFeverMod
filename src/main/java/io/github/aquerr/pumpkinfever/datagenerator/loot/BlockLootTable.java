@@ -1,4 +1,4 @@
-package io.github.aquerr.pumpkinfever.data.loot;
+package io.github.aquerr.pumpkinfever.datagenerator.loot;
 
 import io.github.aquerr.pumpkinfever.block.ModBlocks;
 import net.minecraft.data.loot.BlockLoot;

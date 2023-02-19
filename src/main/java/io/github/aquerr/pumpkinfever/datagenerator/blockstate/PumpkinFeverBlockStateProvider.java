@@ -1,7 +1,6 @@
-package io.github.aquerr.pumpkinfever.data.blockstate;
+package io.github.aquerr.pumpkinfever.datagenerator.blockstate;
 
 import io.github.aquerr.pumpkinfever.PumpkinFever;
-import io.github.aquerr.pumpkinfever.block.ModBlocks;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;

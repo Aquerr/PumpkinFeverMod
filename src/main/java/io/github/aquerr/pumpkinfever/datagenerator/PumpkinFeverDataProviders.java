@@ -1,12 +1,12 @@
-package io.github.aquerr.pumpkinfever.data;
+package io.github.aquerr.pumpkinfever.datagenerator;
 
 import io.github.aquerr.pumpkinfever.PumpkinFever;
-import io.github.aquerr.pumpkinfever.data.blockstate.PumpkinFeverBlockStateProvider;
-import io.github.aquerr.pumpkinfever.data.lang.PumpkinFeverPolishLanguageProvider;
-import io.github.aquerr.pumpkinfever.data.loot.PumpkinFeverLootTableProvider;
-import io.github.aquerr.pumpkinfever.data.model.PumpkinFeverItemModelProvider;
-import io.github.aquerr.pumpkinfever.data.recpie.PumpkinFeverRecipeProvider;
-import io.github.aquerr.pumpkinfever.data.tags.PumpkinFeverBlockTagsProvider;
+import io.github.aquerr.pumpkinfever.datagenerator.blockstate.PumpkinFeverBlockStateProvider;
+import io.github.aquerr.pumpkinfever.datagenerator.lang.PumpkinFeverPolishLanguageProvider;
+import io.github.aquerr.pumpkinfever.datagenerator.loot.PumpkinFeverLootTableProvider;
+import io.github.aquerr.pumpkinfever.datagenerator.model.PumpkinFeverItemModelProvider;
+import io.github.aquerr.pumpkinfever.datagenerator.recpie.PumpkinFeverRecipeProvider;
+import io.github.aquerr.pumpkinfever.datagenerator.tags.PumpkinFeverBlockTagsProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;

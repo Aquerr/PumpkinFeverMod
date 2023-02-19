@@ -1,4 +1,4 @@
-package io.github.aquerr.pumpkinfever.data.recpie;
+package io.github.aquerr.pumpkinfever.datagenerator.recpie;
 
 import io.github.aquerr.pumpkinfever.item.ModItems;
 import net.minecraft.data.DataGenerator;

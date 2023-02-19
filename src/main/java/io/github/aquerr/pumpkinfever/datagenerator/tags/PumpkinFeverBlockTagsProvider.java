@@ -1,4 +1,4 @@
-package io.github.aquerr.pumpkinfever.data.tags;
+package io.github.aquerr.pumpkinfever.datagenerator.tags;
 
 import io.github.aquerr.pumpkinfever.PumpkinFever;
 import io.github.aquerr.pumpkinfever.block.ModBlocks;

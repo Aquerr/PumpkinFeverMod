@@ -1,4 +1,4 @@
-package io.github.aquerr.pumpkinfever.data.lang;
+package io.github.aquerr.pumpkinfever.datagenerator.lang;
 
 import io.github.aquerr.pumpkinfever.PumpkinFever;
 import net.minecraft.data.DataGenerator;
