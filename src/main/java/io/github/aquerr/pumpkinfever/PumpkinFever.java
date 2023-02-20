@@ -9,7 +9,6 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
@@ -67,20 +66,6 @@ public class PumpkinFever
         this.pumpkinFeverPacketHandler = new PumpkinFeverPacketHandler();
 
 //        ForgeRegistries.BIOMES
-    }
-
-    private void doClientStuff(final FMLClientSetupEvent event) {
-        // do something that can only be done on the client
-        registerRenderers();
-    }
-
-    private void registerRenderers()
-    {
-//        EntityRenderers.register(PumpkinFeverEntityTypes.DAREDEVIL_ENTITY_ENTITY_TYPE.get(), DaredevilRenderer::new);
-//        EntityRenderers.register(PumpkinFeverEntityTypes.HEADLESS_HORSEMAN_ENTITY_ENTITY_TYPE.get(), HeadlessHorsemanRenderer::new);
-//        EntityRenderers.register(ModEntityTypeRegistry.CANDY_MERCHANT_ENTITY_TYPE, CandyMerchantRenderer::new);
-
-//        ItemBlockRenderTypes.setRenderLayer(ModBlocks.PUMPKIN_VINE_BLOCK, RenderType.cutout());
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event)

@@ -19,7 +19,8 @@ import java.util.function.Supplier;
 public class PumpkinFeverLootTableProvider extends LootTableProvider
 {
     private final List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, LootTable.Builder>>>, LootContextParamSet>> subProviders = List.of(
-            Pair.of(BlockLootTable::new, LootContextParamSets.BLOCK)
+            Pair.of(BlockLootTable::new, LootContextParamSets.BLOCK),
+            Pair.of(MobLootTable::new, LootContextParamSets.ENTITY)
     );
 
 

@@ -1,4 +1,5 @@
-// 1.19.2	2023-02-19T16:13:41.4736241	PumpkinFeverLootTableProvider
+// 1.19.2	2023-02-20T17:40:06.9464342	PumpkinFeverLootTableProvider
+0c8932d4a21edd2507de68245d95a154ca7a733d data/minecraft/loot_tables/entities/bat.json
 c6f3b0690e5e76f9e704f3a770b8ca0b85ead738 data/pumpkinfever/loot_tables/blocks/pumpkin_vine.json
 387b66bd9e9d0d2200f90b6dc93f97f4a378032d data/pumpkinfever/loot_tables/blocks/tiny_pumpkin.json
 d859c65d1d287b576b102ce046d960dcbc06ba1e data/pumpkinfever/loot_tables/blocks/tiny_pumpkin_lantern.json
