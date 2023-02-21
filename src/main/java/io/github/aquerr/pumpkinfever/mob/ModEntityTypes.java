@@ -1,12 +1,9 @@
 package io.github.aquerr.pumpkinfever.mob;
 
 import io.github.aquerr.pumpkinfever.PumpkinFever;
-import io.github.aquerr.pumpkinfever.client.renderer.DaredevilRenderer;
-import io.github.aquerr.pumpkinfever.client.renderer.HeadlessHorsemanRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
-import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -16,11 +13,9 @@ import net.minecraftforge.registries.RegistryObject;
 
 
 @Mod.EventBusSubscriber(modid = PumpkinFever.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
-public class PumpkinFeverEntityTypes
+public final class ModEntityTypes
 {
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, PumpkinFever.MOD_ID);
-
-
 
 //    public static final EntityType<VillagerEntity> VILLAGER =
 //    register("villager", EntityType.Builder.<VillagerEntity>create(VillagerEntity::new, EntityClassification.MISC).size(0.6F, 1.95F));
@@ -34,7 +29,6 @@ public class PumpkinFeverEntityTypes
             .sized(1.3964844F, 1.6F) //Same as horse
             .setTrackingRange(10)
             .build(new ResourceLocation(PumpkinFever.MOD_ID, DaredevilEntity.REGISTRY_NAME).toString()));
-
 
     public static final RegistryObject<EntityType<HeadlessHorsemanEntity>> HEADLESS_HORSEMAN_ENTITY_ENTITY_TYPE = ENTITY_TYPES.register(HeadlessHorsemanEntity.REGISTRY_NAME, () -> EntityType.Builder
             .of(HeadlessHorsemanEntity::new, MobCategory.MONSTER)
@@ -54,6 +48,12 @@ public class PumpkinFeverEntityTypes
             .setTrackingRange(10)
             .build(new ResourceLocation(PumpkinFever.MOD_ID, PumpkinpoEntity.REGISTRY_NAME).toString()));
 
+    public static final RegistryObject<EntityType<RavenEntity>> RAVEN_ENTITY_TYPE = ENTITY_TYPES.register(RavenEntity.REGISTRY_NAME, () -> EntityType.Builder
+            .of(RavenEntity::new, MobCategory.CREATURE)
+            .sized(0.5F, 0.9F)
+            .clientTrackingRange(8)
+            .build(new ResourceLocation(PumpkinFever.MOD_ID, RavenEntity.REGISTRY_NAME).toString()));
+
     @SubscribeEvent
     public static void onEntityAttributeRegister(final EntityAttributeCreationEvent event)
     {
@@ -61,5 +61,11 @@ public class PumpkinFeverEntityTypes
         event.put(HEADLESS_HORSEMAN_ENTITY_ENTITY_TYPE.get(), HeadlessHorsemanEntity.createMobAttributes().build());
         event.put(PUMPKINNO_ENTITY_ENTITY_TYPE.get(), PumpkinnoEntity.createMobAttributes().build());
         event.put(PUMPKINPO_ENTITY_ENTITY_TYPE.get(), PumpkinpoEntity.createMobAttributes().build());
+        event.put(RAVEN_ENTITY_TYPE.get(), RavenEntity.createAttributes().build());
+    }
+
+    private ModEntityTypes()
+    {
+
     }
 }

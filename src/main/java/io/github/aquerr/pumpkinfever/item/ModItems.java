@@ -27,7 +27,8 @@ import io.github.aquerr.pumpkinfever.item.tool.pumpkiniron.PumpkinInfusedIronSho
 import io.github.aquerr.pumpkinfever.item.tool.pumpkiniron.PumpkinInfusedIronSword;
 import io.github.aquerr.pumpkinfever.mob.DaredevilEntity;
 import io.github.aquerr.pumpkinfever.mob.HeadlessHorsemanEntity;
-import io.github.aquerr.pumpkinfever.mob.PumpkinFeverEntityTypes;
+import io.github.aquerr.pumpkinfever.mob.ModEntityTypes;
+import io.github.aquerr.pumpkinfever.mob.RavenEntity;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.common.ForgeSpawnEggItem;
@@ -76,6 +77,7 @@ public class ModItems
     public static final RegistryObject<CrossItem> CROSS_ITEM = ITEMS.register(CrossItem.REGISTRY_NAME, CrossItem::new);
 
     // Spawn Eggs
-    public static final RegistryObject<Item> DAREDEVIL_SPAWN_EGG = ITEMS.register(DaredevilEntity.REGISTRY_NAME + "_spawn_egg", () -> new ForgeSpawnEggItem(PumpkinFeverEntityTypes.DAREDEVIL_ENTITY_ENTITY_TYPE, 4996656, 986895, (new Item.Properties()).tab(PumpkinFeverItemGroup.getInstance())));
-    public static final RegistryObject<Item> HEADLESS_HORSEMAN_SPAWN_EGG = ITEMS.register(HeadlessHorsemanEntity.REGISTRY_NAME + "_spawn_egg", () -> new ForgeSpawnEggItem(PumpkinFeverEntityTypes.HEADLESS_HORSEMAN_ENTITY_ENTITY_TYPE, 4996656, 986895, (new Item.Properties()).tab(PumpkinFeverItemGroup.getInstance())));
+    public static final RegistryObject<Item> DAREDEVIL_SPAWN_EGG = ITEMS.register(DaredevilEntity.REGISTRY_NAME + "_spawn_egg", () -> new ForgeSpawnEggItem(ModEntityTypes.DAREDEVIL_ENTITY_ENTITY_TYPE, 4996656, 986895, (new Item.Properties()).tab(PumpkinFeverItemGroup.getInstance())));
+    public static final RegistryObject<Item> HEADLESS_HORSEMAN_SPAWN_EGG = ITEMS.register(HeadlessHorsemanEntity.REGISTRY_NAME + "_spawn_egg", () -> new ForgeSpawnEggItem(ModEntityTypes.HEADLESS_HORSEMAN_ENTITY_ENTITY_TYPE, 4996656, 986895, (new Item.Properties()).tab(PumpkinFeverItemGroup.getInstance())));
+    public static final RegistryObject<Item> RAVEN_SPAWN_EGG = ITEMS.register(RavenEntity.REGISTRY_NAME + "_spawn_egg", () -> new ForgeSpawnEggItem(ModEntityTypes.RAVEN_ENTITY_TYPE, 4996656, 986895, (new Item.Properties().tab(PumpkinFeverItemGroup.getInstance()))));
 }

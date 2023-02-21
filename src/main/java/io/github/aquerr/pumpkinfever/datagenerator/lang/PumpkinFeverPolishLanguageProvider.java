@@ -18,5 +18,6 @@ public class PumpkinFeverPolishLanguageProvider extends LanguageProvider
         //TODO: Uzupełnić resztę...
         add("itemGroup." + PumpkinFever.MOD_ID, "Pumpkin Fever");
         add(ModItems.LOLLIPOP_ITEM.get(), "Lizak");
+        add(ModItems.RAVEN_SPAWN_EGG.get(), "Jajko przyzywające kruka");
     }
 }

@@ -8,5 +8,15 @@
       }
     ],
     "subtitle": "sound.pumpkinfever.crow"
+  },
+  "pumpkin_laugh": {
+    "sounds": [
+      "pumpkinfever:pumpkin_laugh",
+      {
+        "name": "pumpkinfever:pumpkin_laugh",
+        "pitch": 1.1
+      }
+    ],
+    "subtitle": "sound.pumpkinfever.pumpkin_laugh"
   }
 }

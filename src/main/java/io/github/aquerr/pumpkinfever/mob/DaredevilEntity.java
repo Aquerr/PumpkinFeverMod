@@ -242,7 +242,7 @@ public class DaredevilEntity extends Horse
 
     private void createRidingHeadlessHorseman(ServerLevelAccessor serverLevelAccessor, DifficultyInstance difficultyInstance, MobSpawnType mobSpawnType)
     {
-        HeadlessHorsemanEntity headlessHorsemanEntity = PumpkinFeverEntityTypes.HEADLESS_HORSEMAN_ENTITY_ENTITY_TYPE.get().create(this.level);
+        HeadlessHorsemanEntity headlessHorsemanEntity = ModEntityTypes.HEADLESS_HORSEMAN_ENTITY_ENTITY_TYPE.get().create(this.level);
         headlessHorsemanEntity.moveTo(this.getX(), this.getY(), this.getZ(), this.getYRot(), 0.0F);
         headlessHorsemanEntity.finalizeSpawn(serverLevelAccessor, difficultyInstance, mobSpawnType, null, null);
         headlessHorsemanEntity.startRiding(this);

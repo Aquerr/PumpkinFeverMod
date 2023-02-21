@@ -2,7 +2,7 @@ package io.github.aquerr.pumpkinfever;
 
 import io.github.aquerr.pumpkinfever.block.ModBlocks;
 import io.github.aquerr.pumpkinfever.item.ModItems;
-import io.github.aquerr.pumpkinfever.mob.PumpkinFeverEntityTypes;
+import io.github.aquerr.pumpkinfever.mob.ModEntityTypes;
 import io.github.aquerr.pumpkinfever.mob.PumpkinFeverVillagerProfessions;
 import io.github.aquerr.pumpkinfever.network.PumpkinFeverPacketHandler;
 import io.github.aquerr.pumpkinfever.sound.ModSounds;
@@ -43,7 +43,7 @@ public class PumpkinFever
         ModBlocks.BLOCKS.register(modEventBus);
         // Register the Deferred Register to the mod event bus so items get registered
         ModItems.ITEMS.register(modEventBus);
-        PumpkinFeverEntityTypes.ENTITY_TYPES.register(modEventBus);
+        ModEntityTypes.ENTITY_TYPES.register(modEventBus);
         PumpkinFeverVillagerProfessions.VILLAGER_PROFESSIONS.register(modEventBus);
         ModSounds.SOUND_EVENTS.register(modEventBus);
 

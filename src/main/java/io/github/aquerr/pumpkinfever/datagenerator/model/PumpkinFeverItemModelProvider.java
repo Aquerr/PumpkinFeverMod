@@ -25,6 +25,7 @@ public class PumpkinFeverItemModelProvider extends ItemModelProvider
     {
         basicItem(ModItems.LOLLIPOP_ITEM.get());
         basicItem(ModItems.PUMPKIN_DUST.get());
+        withExistingParent(ModItems.RAVEN_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
 //        withExistingParent(ModItems.TINY_PUMPKIN.getId().getPath(), modLoc("block/tiny_pumpkin"));
     }
 }
