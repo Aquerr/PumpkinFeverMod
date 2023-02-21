@@ -6,6 +6,7 @@ import io.github.aquerr.pumpkinfever.datagenerator.lang.PumpkinFeverPolishLangua
 import io.github.aquerr.pumpkinfever.datagenerator.loot.PumpkinFeverLootTableProvider;
 import io.github.aquerr.pumpkinfever.datagenerator.model.PumpkinFeverItemModelProvider;
 import io.github.aquerr.pumpkinfever.datagenerator.recpie.PumpkinFeverRecipeProvider;
+import io.github.aquerr.pumpkinfever.datagenerator.sound.PumpkinFeverSoundDataProvider;
 import io.github.aquerr.pumpkinfever.datagenerator.tags.PumpkinFeverBlockTagsProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -28,6 +29,7 @@ public final class PumpkinFeverDataProviders
         //TODO: Uncomment after removing lang file...
 //        dataGenerator.addProvider(event.includeClient(), new PumpkinFeverEnglishLanguageProvider(dataGenerator));
         dataGenerator.addProvider(event.includeClient(), new PumpkinFeverPolishLanguageProvider(dataGenerator));
+        dataGenerator.addProvider(event.includeClient(), new PumpkinFeverSoundDataProvider(dataGenerator, existingFileHelper));
 
         dataGenerator.addProvider(event.includeServer(), new PumpkinFeverLootTableProvider(dataGenerator));
         dataGenerator.addProvider(event.includeServer(), new PumpkinFeverBlockTagsProvider(dataGenerator, existingFileHelper));

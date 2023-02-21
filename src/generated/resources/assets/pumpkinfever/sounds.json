@@ -1,0 +1,12 @@
+{
+  "crow": {
+    "sounds": [
+      "pumpkinfever:crow",
+      {
+        "name": "pumpkinfever:crow",
+        "pitch": 1.1
+      }
+    ],
+    "subtitle": "sound.pumpkinfever.crow"
+  }
+}

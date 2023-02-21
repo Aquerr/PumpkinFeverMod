@@ -5,6 +5,7 @@ import io.github.aquerr.pumpkinfever.item.ModItems;
 import io.github.aquerr.pumpkinfever.mob.PumpkinFeverEntityTypes;
 import io.github.aquerr.pumpkinfever.mob.PumpkinFeverVillagerProfessions;
 import io.github.aquerr.pumpkinfever.network.PumpkinFeverPacketHandler;
+import io.github.aquerr.pumpkinfever.sound.ModSounds;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.InterModComms;
@@ -44,6 +45,7 @@ public class PumpkinFever
         ModItems.ITEMS.register(modEventBus);
         PumpkinFeverEntityTypes.ENTITY_TYPES.register(modEventBus);
         PumpkinFeverVillagerProfessions.VILLAGER_PROFESSIONS.register(modEventBus);
+        ModSounds.SOUND_EVENTS.register(modEventBus);
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
